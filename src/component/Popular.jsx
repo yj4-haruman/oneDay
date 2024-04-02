@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import world from "../img/world.png";
 import user from "../img/user.png";
 import star from "../img/star.png";
+import Modal from "../lib/modal.js";
+
 
 export default function Popular() {
+
+    const [showModal, setShowModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState("");
+  
+    const openModal = (imageUrl) => {
+      setSelectedImage(imageUrl);
+      setShowModal(true);
+    };
+  
+    const closeModal = () => {
+      setShowModal(false);
+      setSelectedImage("");
+    };
+
     return (
         <>
             <div className="w-full flex px-5 my-12 ">
@@ -21,7 +37,9 @@ export default function Popular() {
                     <div className="w-full flex mt-10 text-center gap-x-10 justify-center ">
                         <div className="w-full sm:w-[345px] h-full shadow-lg bg-white flex flex-col gap-y-[12px] rounded-2xl mb-3">
                             {/* class img */}
-                            <div className="w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden">
+                            <div 
+                            onClick={() => openModal("여기 이미지 url 입력")}
+                            className="w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden">
                                 <img src="" alt="" />
                                 이미지라오
                             </div>
@@ -150,6 +168,9 @@ export default function Popular() {
                     </div>
                 </div>
             </div>
+            {showModal && (
+        <Modal imageUrl={selectedImage} onClose={closeModal} />
+        )}
         </>
     );
 }
