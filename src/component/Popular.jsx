@@ -8,7 +8,7 @@ export default function Popular() {
   return (
    <>
     <div className='w-full flex px-5 my-12 '>
-      <div className='w-full h-full bg-red-200 overflow-hidden'>
+      <div className='w-full h-full '>
         {/* title */}
         <div className='w-full flex flex-col gap-y-2'>
             {/* title */}
@@ -22,7 +22,7 @@ export default function Popular() {
         </div>
         {/* one-class */}
         <div className='w-full flex mt-10 text-center gap-x-10 justify-center '>
-          <div className=' w-[22%] h-full bg-white flex flex-col gap-y-[12px] '>
+          <div className='w-full sm:w-[345px] h-full shadow-lg bg-white flex flex-col gap-y-[12px] rounded-2xl mb-3'>
             {/* class img */}
             <div className='w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden'>
               <img src="" alt="" />이미지라오
@@ -45,7 +45,7 @@ export default function Popular() {
               <div>100,000원</div>
             </div>
           </div>
-          <div className=' w-[22%] h-full bg-white flex flex-col gap-y-[12px]'>
+          <div className='w-full sm:w-[345px] h-full shadow-lg bg-white hidden sm:flex flex-col gap-y-[12px] rounded-2xl mb-3'>
             {/* class img */}
             <div className='w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden'>
               <img src="" alt="" />이미지라오
@@ -68,7 +68,7 @@ export default function Popular() {
               <div>100,000원</div>
             </div>
           </div>
-          <div className=' w-[22%] h-full bg-white flex flex-col gap-y-[12px]'>
+          <div className='w-full sm:w-[345px] h-full shadow-lg bg-white hidden lg:flex flex-col gap-y-[12px] rounded-2xl mb-3'>
             {/* class img */}
             <div className='w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden'>
               <img src="" alt="" />이미지라오
@@ -91,7 +91,7 @@ export default function Popular() {
               <div>100,000원</div>
             </div>
           </div>
-          <div className=' w-[22%] h-full bg-white flex flex-col gap-y-[12px]'>
+          <div className='w-full sm:w-[345px] h-full shadow-lg bg-white hidden xl:flex flex-col gap-y-[12px] rounded-2xl mb-3'>
             {/* class img */}
             <div className='w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden'>
               <img src="" alt="" />이미지라오

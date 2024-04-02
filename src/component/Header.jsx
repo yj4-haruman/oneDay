@@ -6,8 +6,8 @@ export default function Header() {
         <div className='w-full flex justify-center'>
             <div className='w-full h-screen bg-sky-300'>
                 {/* 로고 및 로그인 */}
-                <div className='absolute z-10 w-full flex justify-between p-4 px-[50px]'>
-                    <div>로고</div>
+                <div className='absolute z-10 w-full flex justify-between p-4 px-[20px]'>
+                    <div>로고<img src="" alt="" /></div>
                     <div>로그인 | 회원가입</div>
                 </div>
                 {/* 이미지 */}
