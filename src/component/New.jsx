@@ -3,17 +3,16 @@ import world from '../img/world.png';
 import user from '../img/user.png';
 import star from '../img/star.png';
 
-
-export default function Popular() {
+export default function New() {
   return (
-   <>
-    <div className='w-full flex px-5 my-12 '>
+    <>
+    <div className='w-full flex px-5'>
       <div className='w-full h-full bg-red-200 overflow-hidden'>
         {/* title */}
         <div className='w-full flex flex-col gap-y-2'>
             {/* title */}
             <div>
-              <p className='font-black text-[35px]'>인기 클래스</p>
+              <p className='font-black text-[35px]'>새로운 클래스</p>
             </div>
             {/* title des */}
             <div>
