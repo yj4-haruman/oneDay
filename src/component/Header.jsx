@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
                 {/* 로고 및 로그인 */}
                 <div className='absolute z-10 w-full flex justify-between p-4 px-[20px]'>
                     <div>로고<img src="" alt="" /></div>
-                    <div>로그인 | 회원가입</div>
+                    <div><Link to="/users/login">로그인</Link> | <Link to="/users/signup">회원가입</Link> </div>
                 </div>
                 {/* 이미지 */}
                  <div className=' relative w-full h-[75vh] bg-slate-300 flex justify-center items-center'>
