@@ -4,20 +4,18 @@ import user from "../img/user.png";
 import star from "../img/star.png";
 import Modal from "../lib/modal.js";
 
-
 export default function Popular() {
-
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState("");
-  
+
     const openModal = (imageUrl) => {
-      setSelectedImage(imageUrl);
-      setShowModal(true);
+        setSelectedImage(imageUrl);
+        setShowModal(true);
     };
-  
+
     const closeModal = () => {
-      setShowModal(false);
-      setSelectedImage("");
+        setShowModal(false);
+        setSelectedImage("");
     };
 
     return (
@@ -29,17 +27,13 @@ export default function Popular() {
                         {/* title */}
                         <h2 className="font-black text-[35px]">인기 클래스</h2>
                         {/* title des */}
-                        <div>
-                            <p className="font-semibold text-[20px]">어떤 클래스가 좋을지 모르겠다면? 많은 사람이 찾는 클래스부터 시작해보세요.</p>
-                        </div>
+                        <div className="font-semibold text-[20px]">어떤 클래스가 좋을지 모르겠다면? 많은 사람이 찾는 클래스부터 시작해보세요.</div>
                     </div>
                     {/* one-class */}
                     <div className="w-full flex mt-10 text-center gap-x-10 justify-center ">
                         <div className="w-full sm:w-[345px] h-full shadow-lg bg-white flex flex-col gap-y-[12px] rounded-2xl mb-3">
                             {/* class img */}
-                            <div 
-                            onClick={() => openModal("여기 이미지 url 입력")}
-                            className="w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden">
+                            <div onClick={() => openModal("여기 이미지 url 입력")} className="w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden">
                                 <img src="" alt="" />
                                 이미지라오
                             </div>
@@ -168,9 +162,7 @@ export default function Popular() {
                     </div>
                 </div>
             </div>
-            {showModal && (
-        <Modal imageUrl={selectedImage} onClose={closeModal} />
-        )}
+            {showModal && <Modal imageUrl={selectedImage} onClose={closeModal} />}
         </>
     );
 }
