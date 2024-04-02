@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "KOHIBaeumOTF";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "KOHIBaeumOTF";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary {
+    list-style-type: none;
+    cursor: pointer;
 }
