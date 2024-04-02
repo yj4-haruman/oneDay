@@ -1,5 +1,5 @@
 import React from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -12,7 +12,9 @@ export default function Header() {
                             로고
                             <img src="" alt="" />
                         </div>
-                        <div>로그인 | 회원가입</div>
+                        <div>
+                            <Link to="/users/login">로그인</Link> | <Link to="/users/signup">회원가입</Link>{" "}
+                        </div>
                     </div>
                     {/* 이미지 */}
                     <div className=" relative w-full h-[75vh] bg-slate-300 flex justify-center items-center">이미지라우</div>
@@ -32,29 +34,19 @@ export default function Header() {
                             {/* 세부 검색박스 */}
                             <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                                 <button className="w-fit bg-slate-300 rounded-2xl">
-                                    <p className="p-2 px-4 flex items-center gap-1">
-                                        <p>클래스 종류</p> <IoIosArrowDown />
-                                    </p>
+                                    <p className="p-2 px-4">클래스 종류 ∨</p>
                                 </button>
                                 <button className="w-fit bg-slate-300 rounded-2xl">
-                                    <p className="p-2 px-4 flex items-center gap-1">
-                                        <p>인원</p> <IoIosArrowDown />
-                                    </p>
+                                    <p className="p-2 px-4">인원 ∨</p>
                                 </button>
                                 <button className="w-fit bg-slate-300 rounded-2xl">
-                                    <p className="p-2 px-4 flex items-center gap-1">
-                                        <p>온/오프라인</p> <IoIosArrowDown />
-                                    </p>
+                                    <p className="p-2 px-4">온/오프라인 ∨</p>
                                 </button>
                                 <button className="w-fit bg-slate-300 rounded-2xl">
-                                    <p className="p-2 px-4 flex items-center gap-1">
-                                        <p>가격</p> <IoIosArrowDown />
-                                    </p>
+                                    <p className="p-2 px-4">가격 ∨</p>
                                 </button>
                                 <button className="w-fit bg-slate-300 rounded-2xl">
-                                    <p className="p-2 px-4 flex items-center gap-1">
-                                        <p>수업 시간</p> <IoIosArrowDown />
-                                    </p>
+                                    <p className="p-2 px-4">시작 날짜 ∨</p>
                                 </button>
                             </div>
                             {/* 강좌 검색하기버튼 */}
