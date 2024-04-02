@@ -8,7 +8,7 @@ export default function Header() {
                 {/* 로고 및 로그인 */}
                 <div className='absolute z-10 w-full flex justify-between p-4 px-[50px]'>
                     <div>로고</div>
-                    <div>로그인2 | 회원가입</div>
+                    <div>로그인 | 회원가입</div>
                 </div>
                 {/* 이미지 */}
                  <div className=' relative w-full h-[75vh] bg-slate-300 flex justify-center items-center'>
