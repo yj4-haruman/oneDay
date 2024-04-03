@@ -46,19 +46,19 @@ export default function Popular() {
                         }}
                     >
                         <SwiperSlide>
-                            <ClassCard openModal={openModal} />
+                            <ClassCard buttonText="구독 하기" openModal={openModal} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <ClassCard openModal={openModal} />
+                            <ClassCard buttonText="구독 하기" openModal={openModal} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <ClassCard openModal={openModal} />
+                            <ClassCard buttonText="구독 하기" openModal={openModal} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <ClassCard openModal={openModal} />
+                            <ClassCard buttonText="구독 하기" openModal={openModal} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <ClassCard openModal={openModal} />
+                            <ClassCard buttonText="구독 하기" openModal={openModal} />
                         </SwiperSlide>
                     </Swiper>
                 </div>

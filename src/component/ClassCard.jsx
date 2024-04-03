@@ -28,9 +28,10 @@ export default function ClassCard(props) {
       </div>
       {/* class price */}
       <div className="flex justify-between px-2">
-        <div className="flex gap-x-2 items-center">
+        <div className={`flex gap-x-2 items-center ${props.buttonClass}`}>
+          {/* {props.buttonIcon} */}
           <FaRegStar />
-          찜하기
+          {props.buttonText}
         </div>
         <div>100,000원</div>
       </div>
