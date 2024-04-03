@@ -52,7 +52,24 @@ export default function Header() {
               )}
             </div>
           </div>
-          <div className=" relative w-full h-[75vh] bg-slate-300 flex justify-center items-center">이미지라우</div>
+          <div className="w-full h-[75vh] flex justify-center items-center">
+            <div className="w-full max-w-[1000px] flex items-center justify-between">
+              {/* 헤더 왼쪽 */}
+              <div className="px-4">
+                <h2 className="font-semibold text-2xl sm:text-3xl">Lorem ipsum dolor sit amet</h2>
+                <h1 className="font-bold text-5xl sm:text-7xl">
+                  Lorem ip
+                  <br />
+                  Lorem ipsum
+                </h1>
+              </div>
+              <div className="">
+                <div className="top-0 left-0 size-80 bg-blue-500 rounded-full">
+                  <img src="" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
           <div className=" absolute w-full flex justify-center top-[65vh] px-2">
             <div className="w-[1000px] h-[31vh] bg-[#F8F7F9] rounded-[20px]">
               <div className="w-full flex">
