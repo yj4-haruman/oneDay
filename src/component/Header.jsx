@@ -1,8 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { IoIosArrowDown } from "react-icons/io";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "../components/useUser";
 import { apiPostLogout } from "../api";
@@ -50,8 +47,7 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link to="/users/login">로그인</Link> |{" "}
-                  <Link to="/users/signup">회원가입</Link>
+                  <Link to="/users/login">로그인</Link> | <Link to="/users/signup">회원가입</Link>
                 </>
               )}
             </div>
