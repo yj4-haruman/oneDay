@@ -37,14 +37,25 @@ export default function Header() {
               </div>
               {/* 세부 검색박스 */}
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <p className="p-2 px-4 flex gap-1 items-center">
+                <button className="w-fit">
+                  {/* <p className="p-2 px-4 flex gap-1 items-center">
                     <span>클래스 종류</span> <IoIosArrowDown />
-                  </p>
+                  </p> */}
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2">
+                    <option value="1" disabled className="bg-white">
+                      클래스 종류
+                    </option>
+                    <option value="2" className="bg-white">
+                      클래스 종류1
+                    </option>
+                    <option value="3" className="bg-white">
+                      클래스 종류2
+                    </option>
+                  </select>
                 </button>
                 <button className="w-fit bg-slate-300 rounded-2xl">
                   <p className="p-2 px-4 flex gap-1 items-center">
-                    <span>인원</span> <IoIosArrowDown />
+                    <span>참가 인원</span> <IoIosArrowDown />
                   </p>
                 </button>
                 <button className="w-fit bg-slate-300 rounded-2xl">
@@ -55,11 +66,6 @@ export default function Header() {
                 <button className="w-fit bg-slate-300 rounded-2xl">
                   <p className="p-2 px-4 flex gap-1 items-center">
                     <span>가격</span> <IoIosArrowDown />
-                  </p>
-                </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <p className="p-2 px-4 flex gap-1 items-center">
-                    <span>시작 날짜</span> <IoIosArrowDown />
                   </p>
                 </button>
               </div>
