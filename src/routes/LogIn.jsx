@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
 import Socials from "../components/Socials";
@@ -14,12 +14,12 @@ export default function LogIn() {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { mutate } = useMutation(apiPostLogin, {
     onSuccess: () => {
       queryClient.invalidateQueries("getUser");
-      // navigate("/users/Profile");
+      navigate("/");
     },
   });
   const onValid = (formData) => {
@@ -47,6 +47,7 @@ export default function LogIn() {
       ) : (
         <div className="max-w-screen-sm w-full flex flex-col gap-8 px-4">
           {/* 로그인 타이틀 */}
+          
           <div className="flex flex-col gap-2">
             <div className="w-full text-center text-2xl font-bold">로그인</div>
             <div className="w-full text-center text-sm text-neutral-600">
