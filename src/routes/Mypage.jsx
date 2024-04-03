@@ -12,7 +12,7 @@ export default function Mypage() {
         </div>
         {/* user nick name */}
         <div className='w-full pl-[10%] pt-[50px]'>
-          <p className='font-black text-[60px]'>옆 집 사는 개 이름 빙고</p>
+          <p className='font-black text-[60px]'>옆 집 사는 개 이름 빙고 🐶</p>
         </div>
         {/* user wishlist */}
         <div className='w-full flex flex-col pl-[7%] pt-[3%]'>
