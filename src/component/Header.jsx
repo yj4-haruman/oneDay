@@ -1,6 +1,11 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
+import useUser from "../components/useUser";
+import { apiPostLogout } from "../api";
 
 export default function Header() {
 
@@ -18,26 +23,43 @@ export default function Header() {
     setPriceRange("");
   };
 
+  const navigate = useNavigate();
+  const userData = useUser();
+  const userName = userData?.user?.username;
+
+  const handleLogout = async () => {
+    await apiPostLogout();
+    navigate("/");
+  };
+
   return (
     <>
       <div className="w-full flex justify-center">
         <div className="w-full h-screen">
-          {/* 로고 및 로그인 */}
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div>
               로고
               <img src="" alt="" />
             </div>
             <div>
-              <Link to="/users/login">로그인</Link> | <Link to="/users/signup">회원가입</Link>
+              {userName ? (
+                <>
+                  <Link to="/users/profile">{userName}</Link> |{" "}
+                  <Link to="/logout" onClick={handleLogout}>
+                    로그아웃
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/users/login">로그인</Link> |{" "}
+                  <Link to="/users/signup">회원가입</Link>
+                </>
+              )}
             </div>
           </div>
-          {/* 이미지 */}
           <div className=" relative w-full h-[75vh] bg-slate-300 flex justify-center items-center">이미지라우</div>
-          {/* 검색창 */}
           <div className=" absolute w-full flex justify-center top-[65vh] px-2">
             <div className="w-[1000px] h-[31vh] bg-[#F8F7F9] rounded-[20px]">
-              {/* 검색 초기화 */}
               <div className="w-full flex">
                 <div className="w-full flex justify-end p-4 pr-[11%]">
                   <p className="flex items-center gap-1 font-semibold cursor-pointer" onClick={handleReset}>
@@ -45,7 +67,6 @@ export default function Header() {
                   </p>
                 </div>
               </div>
-              {/* 메인 검색박스 */}
               <div className="w-full flex justify-center ">
                 <input 
                 className="border-2 w-[80%] h-[50px] pl-2 text-center placeholder-center rounded-2xl" 
@@ -55,7 +76,6 @@ export default function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              {/* 세부 검색박스 */}
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
                   <select className=" bg-slate-300 rounded-2xl outline-none p-2" 
@@ -88,6 +108,7 @@ export default function Header() {
                     {/* 나머지 옵션들 추가 */}
                   </select>
                 </button>
+                {/* 세부 검색박스 버튼들 */}
                 <button className="w-fit bg-slate-300 rounded-2xl">
                   <select className=" bg-slate-300 rounded-2xl outline-none p-2"
                   value={participants}
@@ -142,7 +163,6 @@ export default function Header() {
                   </select>
                 </button>
               </div>
-              {/* 강좌 검색하기버튼 */}
               <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
                 <button className="w-[50%] py-5 bg-[#239AFF] rounded-2xl">
                   <p className="font-bold text-[20px] text-white">강좌 검색하기</p>
