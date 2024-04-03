@@ -66,3 +66,34 @@
     font-size: 27px;
     color: #fff;
 }
+
+.m-modal-content {
+    display: none;
+}
+
+@media screen and (max-width:650px)  {
+    .modal-content{
+        display: none;
+    }
+
+    .m-modal-content {
+        display: block;
+        width: 390px;
+        height: fit-content;
+        background-color: white;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 27px;
+        color: #000;
+    }
+}
