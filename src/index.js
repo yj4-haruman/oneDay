@@ -8,6 +8,7 @@ import LogIn from "./routes/LogIn";
 import SignUp from './routes/SignUp';
 import Profile from "./routes/Profile";
 import Kakao from './routes/Kakao';
+import Mypage from './routes/Mypage';
 const router =createBrowserRouter([
   {
     path:"/",
@@ -32,6 +33,10 @@ const router =createBrowserRouter([
       {
         path: "socials/kakao",
         element: <Kakao />,
+      },
+      {
+        path: "mypage",
+        element: <Mypage />,
       },
     ]
   }
