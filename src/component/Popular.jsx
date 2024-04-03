@@ -20,10 +20,10 @@ export default function Popular() {
 
     return (
         <>
-            <div className="w-full flex px-5 my-12 ">
+            <div className="w-full flex px-5 mt-16 mb-28">
                 <div className="w-full h-full ">
                     {/* title */}
-                    <div className="w-full flex flex-col gap-y-2">
+                    <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
                         {/* title */}
                         <h2 className="font-black text-[35px]">인기 클래스</h2>
                         {/* title des */}
@@ -32,6 +32,7 @@ export default function Popular() {
                     {/* one-class */}
                     <Swiper
                         slidesPerView={1}
+                        loop={true}
                         breakpoints={{
                             768: {
                                 slidesPerView: 2,

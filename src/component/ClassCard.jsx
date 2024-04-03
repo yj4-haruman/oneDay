@@ -3,7 +3,7 @@ import { FaGlobe, FaUsers, FaRegStar } from "react-icons/fa";
 
 export default function ClassCard(props) {
     return (
-        <div className="w-full sm:w-[345px] h-full shadow-lg bg-white flex flex-col gap-y-[12px] rounded-2xl mb-3">
+        <div className="w-full sm:w-[345px] h-full bg-white flex flex-col gap-y-[12px] rounded-2xl mb-3">
             {/* class img */}
             <div onClick={() => props.openModal("이미지Url")} className="w-full h-[30vh] bg-purple-200 rounded-2xl overflow-hidden">
                 <img src="" alt="" />
