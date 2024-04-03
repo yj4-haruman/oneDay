@@ -1,11 +1,6 @@
 import React from "react";
-import world from "../img/world.png";
-import user from "../img/user.png";
-import location from "../img/location.png";
-import dollar from "../img/dollar.png";
-import clock from "../img/clock.png";
-import car from "../img/car.png";
-import star from "../img/star.png";
+import { FaRegStar } from "react-icons/fa";
+import { FaCoins, FaLocationDot, FaClock, FaGlobe, FaUsers, FaCarSide } from "react-icons/fa6";
 
 export default function Modal({ imageUrl, onClose, content }) {
   return (
@@ -30,27 +25,27 @@ export default function Modal({ imageUrl, onClose, content }) {
               {/* info */}
               <div className="flex flex-col gap-y-[8px] pt-3">
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[17px] h-[21px] pl-[1px]" src={location} alt="" />
+                  <FaLocationDot />
                   <p>{content.주소}</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[18px] h-[18px]" src={dollar} alt="" />
+                  <FaCoins />
                   <p>{content.가격}원</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[18px] h-[19px]" src={clock} alt="" />
+                  <FaClock />
                   <p>{content.시간}시간</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[18px] h-[18px]" src={world} alt="" />
+                  <FaGlobe />
                   <p>{content.라인}</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[18px] h-[15px]" src={user} alt="" />
+                  <FaUsers />
                   <p>{content.인원}명</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
-                  <img className="w-[18px] h-[17px]" src={car} alt="" />
+                  <FaCarSide />
                   <p>{content.주차}</p>
                 </div>
               </div>
@@ -58,7 +53,7 @@ export default function Modal({ imageUrl, onClose, content }) {
               <div className="w-full flex justify-center pt-[7px] cursor-pointer">
                 <div className="w-[90%] h-[40px] bg-blue-300 rounded-2xl flex justify-center gap-x-3">
                   <div className="flex items-center">
-                    <img className="item w-[28px] h-[25px]" src={star} alt="start" />
+                    <FaRegStar />
                   </div>
                   <div className="flex items-center">
                     <p className="font-bold text-[17px]">구독하기</p>
@@ -96,27 +91,27 @@ export default function Modal({ imageUrl, onClose, content }) {
             {/* info */}
             <div className="flex flex-col gap-y-[8px] pt-1">
               <div className="flex gap-x-3 items-center">
-                <img className="w-[17px] h-[21px] pl-[1px]" src={location} alt="" />
+                <FaLocationDot />
                 <p>{content.주소}</p>
               </div>
               <div className="flex gap-x-3 items-center">
-                <img className="w-[18px] h-[18px]" src={dollar} alt="" />
+                <FaCoins />
                 <p>{content.가격}원</p>
               </div>
               <div className="flex gap-x-3 items-center">
-                <img className="w-[18px] h-[19px]" src={clock} alt="" />
+                <FaClock />
                 <p>{content.시간}시간</p>
               </div>
               <div className="flex gap-x-3 items-center">
-                <img className="w-[18px] h-[18px]" src={world} alt="" />
+                <FaGlobe />
                 <p>{content.라인}</p>
               </div>
               <div className="flex gap-x-3 items-center">
-                <img className="w-[18px] h-[15px]" src={user} alt="" />
+                <FaUsers />
                 <p>{content.인원}명</p>
               </div>
               <div className="flex gap-x-3 items-center">
-                <img className="w-[18px] h-[17px]" src={car} alt="" />
+                <FaCarSide />
                 <p>{content.주차}</p>
               </div>
             </div>
@@ -124,7 +119,7 @@ export default function Modal({ imageUrl, onClose, content }) {
             <div className="w-full flex justify-center pt-[7px] cursor-pointer">
               <div className="w-[90%] h-[40px] bg-blue-300 rounded-2xl flex justify-center gap-x-3">
                 <div className="flex items-center">
-                  <img className="item w-[28px] h-[25px]" src={star} alt="start" />
+                  <FaRegStar />
                 </div>
                 <div className="flex items-center">
                   <p className="font-bold text-[17px]">관심 클래스</p>

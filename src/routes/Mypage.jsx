@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../img/home.png";
+import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ClassCard from "../component/ClassCard";
 
@@ -9,7 +9,7 @@ export default function Mypage() {
       {/* home */}
       <div className="w-fit">
         <Link to="/">
-          <img src={Home} alt="" />
+          <FaHouse />
         </Link>
       </div>
       {/* user nick name */}

@@ -1,11 +1,12 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
 import Socials from "../components/Socials";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
-import { apiPostLogin, apiPostLogout } from "../api";
+import { apiPostLogin, } from "../api";
 import useUser from "../components/useUser";
+// import App from "../App";
 
 export default function LogIn() {
   const queryClient = useQueryClient();
@@ -14,37 +15,27 @@ export default function LogIn() {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const navigate = useNavigate();
+  
 
   const { mutate } = useMutation(apiPostLogin, {
     onSuccess: () => {
       queryClient.invalidateQueries("getUser");
-      navigate("/");
+      
     },
   });
+
   const onValid = (formData) => {
     mutate(formData);
   };
-
+  
   const data = useUser();
-  const handleLogout = async () => {
-    await apiPostLogout();
-    queryClient.invalidateQueries("getUser");
-  };
-
+  
   return (
-    <div className="w-full flex justify-center py-16">
+    <div>
       {data?.isLogin === true ? (
-        <div className="flex flex-col gap-4">
-          <span>프로필 페이지</span>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 text-white bg-red-500"
-          >
-            로그아웃
-          </button>
-        </div>
+        window.location.href = "/"
       ) : (
+      <div className="w-full flex justify-center py-16">
         <div className="max-w-screen-sm w-full flex flex-col gap-8 px-4">
           {/* 로그인 타이틀 */}
           
@@ -87,6 +78,7 @@ export default function LogIn() {
           {/* 소셜로그인 */}
           <Socials />
         </div>
+      </div>
       )}
     </div>
   );
