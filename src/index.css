@@ -92,6 +92,26 @@
   position: relative;
 }
 
+.modal-content h4,
+.m-modal-content h4 {
+  position: relative;
+  width: max-content;
+  z-index: 1;
+}
+
+.modal-content h4::after,
+.m-modal-content h4::after {
+  z-index: -1;
+  position: absolute;
+  content: " ";
+  display: inline-block;
+  height: 7px;
+  width: 100%;
+  background: #8ac9ff;
+  bottom: 5px;
+  left: 0;
+}
+
 .close {
   position: absolute;
   top: 0px;

@@ -25,7 +25,7 @@ export default function ClassCard(props) {
         </div>
       </div>
       {/* class name */}
-      <div className="w-full flex px-2">
+      <div className="w-full flex px-2 text-xl font-semibold">
         <p>{props.이름}</p>
       </div>
       {/* class price */}

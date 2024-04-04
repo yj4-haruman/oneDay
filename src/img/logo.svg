@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560.03 248.26"><defs><style>.cls-1{fill:#239aff;}.cls-2{fill:#ffcc32;}</style></defs><title>Asset 5</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M192.9,27.14V62.62H171.35C176.8,70.72,180,80,180,89.29c0,31.19-22.53,59.28-62.4,59.28H75.28c-39.87,0-62.4-28.09-62.4-59.28,0-9.29,3.22-18.57,8.66-26.67H0V27.14H70.57V0h52V27.14Zm-87.41,87.62c16.59,0,27.48-10.71,27.48-26.43,0-16-11.39-26.42-28-26.42H87.9c-16.59,0-28,10.47-28,26.42,0,15.72,10.9,26.43,27.49,26.43Z"/><path class="cls-2" d="M201.18,148.49V56.83H324.47V37.66H201.18V.3h172.6V92.7H252.49v19.18H377v36.61Z"/><path class="cls-1" d="M385.68,147.25V1.79H560V147.25ZM433,110.39h79.7V38.65H433Z"/><path class="cls-2" d="M560,196V166.64H1v30H559.43A4.3,4.3,0,0,1,560,196Z"/><path class="cls-2" d="M560,196.07l-19.54-22.3-59.49,52.12,19.6,22.37,58.85-51.55A3.9,3.9,0,0,1,560,196.07Z"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 606 248.3" style="enable-background:new 0 0 606 248.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#239AFF;}
+	.st1{fill:#FFCC32;}
+</style>
+<title>Asset 5</title>
+<path class="st0" d="M200.9,27.1v35.5h-21.5c5.4,8.1,8.6,17.4,8.6,26.7c0,31.2-22.5,59.3-62.4,59.3H83.2
+	c-39.9,0-62.4-28.1-62.4-59.3c0-9.3,3.2-18.6,8.7-26.7H8V27.1h70.6V0h52v27.1H200.9z M113.5,114.8c16.6,0,27.5-10.7,27.5-26.4
+	c0-16-11.4-26.4-28-26.4H95.9c-16.6,0-28,10.5-28,26.4c0,15.7,10.9,26.4,27.5,26.4H113.5z"/>
+<path class="st1" d="M224.1,148.5V56.8h123.3V37.7H224.1V0.3h172.6v92.4H275.5v19.2H400v36.6L224.1,148.5z"/>
+<path class="st0" d="M423.6,147.3V1.8H598v145.5H423.6z M471,110.4h79.7V38.7H471V110.4z"/>
+<path class="st1" d="M593,196v-29.4H8v30h584.4C592.5,196.4,592.7,196.2,593,196z"/>
+<path class="st1" d="M593,196.1l-20.4-22.3l-62.3,52.1l20.5,22.4l61.6-51.6C592.5,196.5,592.7,196.3,593,196.1z"/>
+</svg>

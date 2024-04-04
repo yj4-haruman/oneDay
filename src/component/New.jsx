@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Modal from "../lib/modal.js";
 import ClassCard from "./ClassCard.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,15 +8,21 @@ import { classListNew } from "../lib/classList.js";
 export default function Popular() {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [modalCont, setModalCont] = useState();
+  const modalRef = useRef();
 
-  const openModal = (imageUrl) => {
+  const openModal = (imageUrl, item) => {
     setSelectedImage(imageUrl);
+    setModalCont(item);
     setShowModal(true);
   };
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) setShowModal(false);
+    else if (e.target.classList[0] === "close") setShowModal(false);
     setShowModal(false);
     setSelectedImage("");
+    e.stopPropagation();
   };
 
   return (
@@ -48,13 +54,13 @@ export default function Popular() {
           >
             {classListNew.map((item, index) => (
               <SwiperSlide key={index}>
-                <ClassCard openModal={openModal} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="구독하기" />
+                <ClassCard openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="구독하기" />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
-      {showModal && <Modal imageUrl={selectedImage} onClose={closeModal} />}
+      {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );
 }
