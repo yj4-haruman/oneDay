@@ -3,10 +3,10 @@ import { FaRegStar } from "react-icons/fa";
 import { FaCoins, FaLocationDot, FaClock, FaGlobe, FaUsers, FaCarSide } from "react-icons/fa6";
 import ClassCate from "../component/ClassCate";
 
-export default function Modal({ imageUrl, onClose, content }) {
+export default function Modal({ modalRef, imageUrl, onClose, content }) {
   return (
-    <div className="modal z-10">
-      <div className="modal-content  overflow-y-scroll">
+    <div className="modal z-10" ref={modalRef} onClick={onClose}>
+      <div className="modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -14,7 +14,7 @@ export default function Modal({ imageUrl, onClose, content }) {
         <div className="modal-text flex flex-col">
           <div className="flex gap-x-2">
             {/* modal img */}
-            <div className="w-full h-[600px] bg-gray-500 rounded-2xl overflow-hidden">
+            <div className="w-full h-[600px] bg-gray-300 rounded-2xl overflow-hidden">
               <img src={imageUrl} alt="Class" />
             </div>
             {/* modal info */}
