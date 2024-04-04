@@ -2,11 +2,13 @@ import React from "react";
 import { FaRegStar } from "react-icons/fa";
 import { FaCoins, FaLocationDot, FaClock, FaGlobe, FaUsers, FaCarSide } from "react-icons/fa6";
 import ClassCate from "../component/ClassCate";
+import { motion } from "framer-motion";
+import { IoLogoInstagram } from "react-icons/io";
 
 export default function Modal({ modalRef, imageUrl, onClose, content }) {
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
-      <div className="modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -64,15 +66,25 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             </div>
           </div>
           {/* modal des */}
-          <div className="w-full flex flex-col gap-y-6 pt-10 pl-2">
+          <div className="w-full flex flex-col gap-y-6 py-10 px-8">
             {/* 소제목 */}
             <div className="flex flex-col gap-y-2">
-              <h4 className="font-semibold text-3xl">클래스 소개</h4>
-              <p className="w-[80%] text-xl font-medium" dangerouslySetInnerHTML={{ __html: content.내용 }} />
+              <h4 className="font-semibold text-[27px]">클래스 소개</h4>
+              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.내용 }} />
+              <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
+              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.내용2 }} />
+              <h4 className="font-semibold text-[27px]">선생님 소개</h4>
+              <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.내용3 }} />
+              <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
+                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+                  <IoLogoInstagram size="24px" color="gray" />
+                  SNS
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* mobile mode */}
       <div className="m-modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
@@ -129,9 +141,19 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             </div>
           </div>
           {/* m-des */}
-          <div className="w-[93%] flex flex-col gap-y-2 pt-1 mt-4">
-            <h2 className="font-semibold text-2xl">클래스 소개</h2>
-            <p className="w-full font-medium text-xl" dangerouslySetInnerHTML={{ __html: content.내용 }}></p>
+          <div className="w-[93%] flex flex-col gap-y-2 py-8 px-6 mt-4">
+            <h4 className="font-semibold text-[27px]">클래스 소개</h4>
+            <p className="w-full text-2xl mb-10" dangerouslySetInnerHTML={{ __html: content.내용 }}></p>
+            <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
+            <p className="w-full text-2xl mb-10" dangerouslySetInnerHTML={{ __html: content.내용2 }}></p>
+            <h4 className="font-semibold text-[27px]">선생님 소개</h4>
+            <p className="w-full text-2xl" dangerouslySetInnerHTML={{ __html: content.내용3 }}></p>
+            <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400 mb-8">
+              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+                <IoLogoInstagram size="24px" color="gray" />
+                SNS
+              </a>
+            </div>
           </div>
         </div>
       </div>

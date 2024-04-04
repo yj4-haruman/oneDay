@@ -61,12 +61,17 @@ export default function Header() {
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
               <div className="px-4">
-                <h2 className="font-semibold mb-3 text-[#333] h1Tit">Lorem ipsum dolor sit</h2>
-                <h1 className="font-bold text-[#333] h1Tit">
-                  Lorem ip
+                <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
+                <h1 className="font-bold text-[#333] ffNetm">
+                  대구만의
                   <br />
-                  Lorem ipsum
+                  즐거운 하루하루
                 </h1>
+                <h3 className="text-xl ml-3 mt-4">
+                  &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
+                  <br />
+                  특별한 원데이클래스를 제공해드립니다.
+                </h3>
               </div>
             </div>
           </div>
@@ -156,8 +161,8 @@ export default function Header() {
                 </button>
               </div>
               <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
-                <button className="w-[50%] py-5 bg-mainBlue rounded-2xl">
-                  <p className="font-bold text-[20px] text-white">강좌 검색하기</p>
+                <button className="w-[50%] py-3 bg-mainBlue rounded-2xl">
+                  <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
               </div>
             </div>

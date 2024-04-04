@@ -19,7 +19,7 @@ export default function Popular() {
 
   const closeModal = (e) => {
     if (modalRef.current === e.target) setShowModal(false);
-    setShowModal(false);
+    else if (e.target.classList[0] === "close") setShowModal(false);
     setSelectedImage("");
     e.stopPropagation();
   };
