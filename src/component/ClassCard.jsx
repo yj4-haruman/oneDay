@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGlobe, FaUsers, FaRegStar } from "react-icons/fa";
+import ClassCate from "./ClassCate";
 
 export default function ClassCard(props) {
   return (
@@ -11,7 +12,7 @@ export default function ClassCard(props) {
       </div>
       {/* class genre */}
       <div className="w-full flex justify-between px-2 items-center">
-        <div className=" border border-black p-1 rounded-xl">{props.종류}</div>
+        <ClassCate txt={props.종류} />
         <div className="flex gap-x-5">
           <div className=" flex gap-x-1 items-center">
             <FaGlobe />
