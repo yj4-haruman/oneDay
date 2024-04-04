@@ -1,8 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
-import useUser from "../components/useUser";
+import useUser from "./useUser";
 import { apiPostLogout } from "../api";
+import head from "../img/head2.png";
+import logo from "../img/logo.svg";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,9 +35,8 @@ export default function Header() {
       <div className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
-            <div>
-              로고
-              <img src="" alt="" />
+            <div className="w-32">
+              <img src={logo} alt="하루만로고" />
             </div>
             <div>
               {userName ? (
@@ -47,14 +48,19 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link to="/users/login">로그인</Link> | <Link to="/users/signup">회원가입</Link>
+                  <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-[#239AFF] font-semibold text-lg">
+                    로그인
+                  </Link>
+                  <Link to="/users/signup" className="px-3 py-2 rounded-xl mx-2 text-white bg-[#239aff] font-semibold text-lg">
+                    회원가입
+                  </Link>
                 </>
               )}
             </div>
           </div>
-          <div className="w-full h-[75vh] flex justify-center items-center">
+          <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover" style={{ backgroundImage: `url(${head})` }}>
             <div className="w-full max-w-[1000px] flex items-center justify-between">
-              {/* 헤더 왼쪽 */}
+              {/* 헤더 제목 */}
               <div className="px-4">
                 <h2 className="font-semibold text-2xl sm:text-3xl">Lorem ipsum dolor sit amet</h2>
                 <h1 className="font-bold text-5xl sm:text-7xl">
@@ -62,11 +68,6 @@ export default function Header() {
                   <br />
                   Lorem ipsum
                 </h1>
-              </div>
-              <div className="">
-                <div className="top-0 left-0 size-80 bg-blue-500 rounded-full">
-                  <img src="" alt="" />
-                </div>
               </div>
             </div>
           </div>
