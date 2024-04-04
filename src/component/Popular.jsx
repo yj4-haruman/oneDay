@@ -53,7 +53,7 @@ export default function Popular() {
           >
             {classList.map((item, index) => (
               <SwiperSlide key={index}>
-                <ClassCard openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="구독하기" />
+                <ClassCard openModal={openModal} 내용={item} img={item.imageUrl} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="구독하기" />
               </SwiperSlide>
             ))}
           </Swiper>
