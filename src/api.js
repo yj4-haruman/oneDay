@@ -61,7 +61,7 @@ export async function apiPostNoticeDelete(id) {
     return await fetch(`${BASE_URL}/notice/${id}/delete`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type" : "application/json",
       },
     }).then((res) => res.json());
   } catch (error) {
