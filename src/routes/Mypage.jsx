@@ -5,10 +5,10 @@ import ClassCard from "../component/ClassCard";
 
 export default function Mypage() {
   return (
-    <div className="w-full flex flex-col p-5 items-center">
+    <div className="w-full flex flex-col p-4 items-center">
       {/* home */}
-      <div className="w-full">
-        <div className="w-fit">
+      <div className="w-full pl-[1%] ">
+        <div className="w-fit text-[40px]">
           <Link to="/">
             <FaHouse/>
           </Link>
@@ -21,7 +21,7 @@ export default function Mypage() {
         </div>
         {/* user wishlist */}
         <div className="w-full flex flex-col pl-[7%] pt-[3%]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:flex gap-x-5 gap-y-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:flex gap-x-7 gap-y-9">
             {/* alarm banner */}
             <div className="w-[345px] h-[450px] bg-red-200 rounded-2xl">
               <div className="flex flex-col p-5 gap-y-1">
@@ -37,9 +37,9 @@ export default function Mypage() {
               <ClassCard buttonText="구독 해제" />
             </div>
           </div>
-          <div className="w-full xl:w-[98%] pt-10">
+          <div className="w-full pt-10">
             {/* wishlist */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:flex gap-x-5">
+            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:flex 2xl:w-[99%] gap-x-3">
               <ClassCard buttonText="구독 해제" />
               <ClassCard buttonText="구독 해제" />
               <ClassCard buttonText="구독 해제" />
