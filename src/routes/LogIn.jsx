@@ -44,10 +44,10 @@ export default function LogIn() {
               {/* 로그인 타이틀 */}
 
               <div className="flex flex-col gap-2">
-                <div className="w-full text-center text-4xl font-bold mb-1 text-[#239AFF]">로그인</div>
+                <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">로그인</div>
                 <div className="w-full text-center text-neutral-600">
                   아직 회원이 아니라면&nbsp;
-                  <Link to="/users/signup" className="hover:text-[#239AFF] hover:underline underline-offset-2">
+                  <Link to="/users/signup" className="hover:text-mainBlue hover:underline underline-offset-2">
                     가입하기
                   </Link>
                 </div>

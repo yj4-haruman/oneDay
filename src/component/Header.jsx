@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
-import head from "../img/head2.png";
 import logo from "../img/logo.svg";
 
 export default function Header() {
@@ -35,7 +34,7 @@ export default function Header() {
       <div className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
-            <div className="w-32">
+            <div className="w-[114px]">
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
@@ -48,22 +47,22 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-[#239AFF] font-semibold text-lg">
+                  <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인
                   </Link>
-                  <Link to="/users/signup" className="px-3 py-2 rounded-xl mx-2 text-white bg-[#239aff] font-semibold text-lg">
+                  <Link to="/users/signup" className="px-3 py-2 rounded-xl mx-2 text-white bg-mainBlue font-semibold text-lg">
                     회원가입
                   </Link>
                 </>
               )}
             </div>
           </div>
-          <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover" style={{ backgroundImage: `url(${head})` }}>
+          <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
               <div className="px-4">
-                <h2 className="font-semibold text-2xl sm:text-3xl">Lorem ipsum dolor sit amet</h2>
-                <h1 className="font-bold text-5xl sm:text-7xl">
+                <h2 className="font-semibold mb-3 text-[#333] h1Tit">Lorem ipsum dolor sit</h2>
+                <h1 className="font-bold text-[#333] h1Tit">
                   Lorem ip
                   <br />
                   Lorem ipsum
@@ -71,8 +70,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className=" absolute w-full flex justify-center top-[65vh] px-2">
-            <div className="w-[1000px] h-[31vh] bg-[#F8F7F9] rounded-[20px]">
+          <div className="absolute w-full flex justify-center top-[65vh] px-2">
+            <div className="w-[1000px] h-[290px] md:h-[245px] bg-[#F8F7F9] rounded-[20px]">
               <div className="w-full flex">
                 <div className="w-full flex justify-end p-4 pr-[11%]">
                   <p className="flex items-center gap-1 font-semibold cursor-pointer" onClick={handleReset}>
@@ -157,7 +156,7 @@ export default function Header() {
                 </button>
               </div>
               <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
-                <button className="w-[50%] py-5 bg-[#239AFF] rounded-2xl">
+                <button className="w-[50%] py-5 bg-mainBlue rounded-2xl">
                   <p className="font-bold text-[20px] text-white">강좌 검색하기</p>
                 </button>
               </div>
