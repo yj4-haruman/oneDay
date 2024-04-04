@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Modal from "../lib/modal.js";
 import ClassCard from "./ClassCard.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,7 @@ export default function Popular() {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [modalCont, setModalCont] = useState();
+  const modalRef = useRef();
 
   const openModal = (imageUrl, item) => {
     setSelectedImage(imageUrl);
@@ -16,9 +17,11 @@ export default function Popular() {
     setShowModal(true);
   };
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) setShowModal(false);
     setShowModal(false);
     setSelectedImage("");
+    e.stopPropagation();
   };
 
   return (
@@ -56,7 +59,7 @@ export default function Popular() {
           </Swiper>
         </div>
       </div>
-      {showModal && <Modal imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
+      {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );
 }
