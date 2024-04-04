@@ -62,10 +62,13 @@ export default function Header() {
               {/* 헤더 제목 */}
               <div className="px-4">
                 <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
-                <h1 className="font-bold text-[#333] ffNetm">
-                  대구만의
-                  <br />
-                  즐거운 하루하루
+                <h1 className="font-bold flex flex-col gap-y-3 text-[#333] ffNetm">
+                  <div className="ffNetm">
+                    대구만의
+                  </div>
+                  <div className="ffNetm">
+                    즐거운 하루하루
+                  </div>
                 </h1>
                 <h3 className="text-xl ml-3 mt-4">
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
@@ -160,7 +163,7 @@ export default function Header() {
                   </select>
                 </button>
               </div>
-              <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
+              <div className="w-full flex justify-center mt-[0px] sm:mt-[15px]">
                 <button className="w-[50%] py-3 bg-mainBlue rounded-full">
                   <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
