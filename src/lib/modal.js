@@ -13,11 +13,11 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
           &times;
         </span>
         {/* pc tablet mode */}
-        <div className="modal-text flex flex-col">
+        <div className="modal-text flex flex-col p-12">
           <div className="flex gap-x-2">
             {/* modal img */}
             <div className="w-full h-[600px] bg-gray-300 rounded-2xl overflow-hidden">
-              <img src={imageUrl} alt="Class" />
+              <img className="w-full h-full" src={content.imageUrl} alt="Class" />
             </div>
             {/* modal info */}
             <div className="w-[350px] h-[600px] flex flex-col rounded-2xl p-8 gap-y-2" style={{ boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
