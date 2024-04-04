@@ -161,7 +161,7 @@ export default function Header() {
                 </button>
               </div>
               <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
-                <button className="w-[50%] py-3 bg-mainBlue rounded-2xl">
+                <button className="w-[50%] py-3 bg-mainBlue rounded-full">
                   <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
               </div>
