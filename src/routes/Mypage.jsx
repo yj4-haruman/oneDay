@@ -5,6 +5,7 @@ import clock from "../img/clock.png";
 import phone from "../img/megaphone.png";
 import fire from "../img/celeb.png";
 import logo from "../img/logo.svg";
+import useUser from "../component/useUser";
 
 export default function Mypage() {
   const userData = useUser();
@@ -24,7 +25,7 @@ export default function Mypage() {
       <div className="w-full pl-[10%]">
         <div className="w-fit">
           <p className="font-bold text-[50px] mb-10">
-            <span>ㅇㅇㅇ</span>님의 구독 클래스
+            <span>{userName}</span>님의 구독 클래스
           </p>
         </div>
       </div>

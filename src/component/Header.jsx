@@ -42,7 +42,7 @@ export default function Header() {
             <div>
               {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
                 <>
-                  <Link to="/users/mypage">{userName}</Link> |{" "}
+                  <Link to="/users/mypage">{userName}님</Link> |{" "}
                   <Link onClick={handleLogout}>
                     로그아웃
                   </Link>
@@ -72,7 +72,7 @@ export default function Header() {
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
                   Lorem ipsum
-                </h1>
+                </h3>
               </div>
             </div>
           </div>

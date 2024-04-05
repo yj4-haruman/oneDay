@@ -30,7 +30,7 @@ export default function LogIn() {
         // 로그인 성공 시 세션 스토리지에 데이터 저장
         sessionStorage.setItem('userData', JSON.stringify(data));
         queryClient.invalidateQueries("getUser");
-        navigate("/users/mypage");
+        navigate("/");
       } else {
         // 로그인 실패 시
         sessionStorage.clear();
