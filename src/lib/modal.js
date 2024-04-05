@@ -16,12 +16,6 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
   const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
 
-  const handleNum = (e) => {
-    const inputNum = parseInt(e.target.value);
-    if (!isNaN(inputNum) && inputNum >= 1) {
-      setNumber(inputNum);
-    }
-  };
   const onsubmit = (data) => {
     if (!data.data || !data.number) {
       alert("날짜와 인원수를 모두 입력하세요.");
@@ -87,7 +81,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                       <DemoContainer components={["DatePicker", "DatePicker"]}>
                         <DatePicker
                           format="YYYY-MM-DD"
-                          defaultValue={value}
+                          defaultValue={dayjs()}
                           onChange={(newValue) => {
                             setValue(newValue.format("YYYY-MM-DD"));
                             field.onChange(newValue.format("YYYY-MM-DD"));
@@ -202,7 +196,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                     <DemoContainer components={["DatePicker", "DatePicker"]}>
                       <DatePicker
                         format="YYYY-MM-DD"
-                        defaultValue={value}
+                        defaultValue={dayjs()}
                         onChange={(newValue) => {
                           setValue(newValue.format("YYYY-MM-DD"));
                           field.onChange(newValue.format("YYYY-MM-DD"));
@@ -219,7 +213,19 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   control={control}
                   defaultValue={number}
                   name="number" // 이름을 "number"로 변경
-                  render={({ field }) => <input {...field} type="text" className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-[230px] h-12 outline-none" />}
+                  render={({ field }) => (
+                    <input
+                      {...field}
+                      type="text"
+                      className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-[230px] h-12 outline-none"
+                      onChange={(e) => {
+                        const inputNum = parseInt(e.target.value);
+                        if (!isNaN(inputNum) && inputNum >= 1) {
+                          field.onChange(inputNum);
+                        }
+                      }}
+                    />
+                  )}
                 />
                 <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
               </div>
