@@ -106,7 +106,7 @@ export default function Header() {
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       클래스 종류
                     </option>
@@ -130,7 +130,7 @@ export default function Header() {
                 </button>
                 {/* 세부 검색박스 버튼들 */}
                 <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -147,7 +147,7 @@ export default function Header() {
                   </select>
                 </button>
                 <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -160,7 +160,7 @@ export default function Header() {
                   </select>
                 </button>
                 <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>
