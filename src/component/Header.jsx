@@ -66,7 +66,7 @@ export default function Header() {
                   <div className="ffNetm">대구만의</div>
                   <div className="ffNetm">즐거운 하루하루</div>
                 </h1>
-                <h3 className="text-xl ml-3 mt-4">
+                <h3 className="text-md md:text-xl ml-3 mt-4">
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
                   특별한 원데이클래스를 제공해드립니다.
