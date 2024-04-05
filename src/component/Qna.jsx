@@ -6,7 +6,7 @@ const Detail = ({ summ, txt, border }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleQna = () => setIsOpen(!isOpen);
   return (
-    <div onClick={toggleQna} className="">
+    <section onClick={toggleQna} className="">
       <button className={`${border} px-5 py-[16px] border-[#ccc] w-full text-left flex justify-between items-center text-[20px] font-semibold outline-none`}>
         <p>{summ}</p>
         <IoIosArrowDown />
@@ -18,7 +18,7 @@ const Detail = ({ summ, txt, border }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 };
 

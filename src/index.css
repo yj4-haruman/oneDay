@@ -69,6 +69,11 @@
   max-width: 1600px;
 }
 
+.swiper img,
+.modal img {
+  object-fit: cover;
+}
+
 .modal {
   display: flex;
   justify-content: center;

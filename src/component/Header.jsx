@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="w-full flex justify-center">
+      <header className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div className="w-[114px]">
@@ -60,15 +60,11 @@ export default function Header() {
           <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
-              <div className="px-4">
+              <div className="px-4 select-none">
                 <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
                 <h1 className="font-bold flex flex-col gap-y-3 text-[#333] ffNetm">
-                  <div className="ffNetm">
-                    대구만의
-                  </div>
-                  <div className="ffNetm">
-                    즐거운 하루하루
-                  </div>
+                  <div className="ffNetm">대구만의</div>
+                  <div className="ffNetm">즐거운 하루하루</div>
                 </h1>
                 <h3 className="text-xl ml-3 mt-4">
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
@@ -171,7 +167,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 }
