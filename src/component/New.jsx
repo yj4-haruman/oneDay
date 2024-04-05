@@ -4,6 +4,7 @@ import ClassCard from "./ClassCard.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { classListNew } from "../lib/classList.js";
+import { FaSeedling } from "react-icons/fa";
 
 export default function Popular() {
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,10 @@ export default function Popular() {
           {/* title */}
           <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
             {/* title */}
-            <h2 className="font-black text-[35px]">새로운 클래스</h2>
+            <h2 className="font-black text-[35px] flex items-center gap-1">
+              새로운 클래스
+              <FaSeedling color="#239aff" />
+            </h2>
             {/* title des */}
             <div className="font-semibold text-[20px]">지금 새로 나온 원데이 클래스는 어떠세요?</div>
           </div>
