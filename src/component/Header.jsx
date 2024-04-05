@@ -26,13 +26,14 @@ export default function Header() {
     setIsSearched(false);
   };
 
-  const navigate = useNavigate();
+
   const userData = useUser();
   const userName = userData?.user?.username;
 
   const handleLogout = async () => {
     await apiPostLogout();
-    navigate("/");
+    sessionStorage.clear();
+    window.location.href = "/";
   };
 
   const handleSearch = () => {
@@ -52,14 +53,14 @@ export default function Header() {
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
-              {userName ? (
+            {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
                 <>
-                  <Link to="/users/profile">{userName}</Link> |{" "}
-                  <Link to="/logout" onClick={handleLogout}>
+                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">{userName}님</Link> |{" "}
+                  <Link className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg" onClick={handleLogout}>
                     로그아웃
                   </Link>
                 </>
-              ) : (
+              ) : ( // 없으면 로그인 및 회원가입 링크 표시
                 <>
                   <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인

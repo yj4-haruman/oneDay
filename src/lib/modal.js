@@ -31,10 +31,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   <FaLocationDot size="22px" />
                   <p>{content.주소}</p>
                 </div>
-                <div className="flex gap-x-3 items-center">
-                  <FaCoins size="22px" />
-                  <p>{content.가격}원</p>
-                </div>
+
                 <div className="flex gap-x-3 items-center">
                   <FaClock size="22px" />
                   <p>{content.시간}시간</p>
@@ -50,6 +47,10 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                 <div className="flex gap-x-3 items-center">
                   <FaCarSide size="22px" />
                   <p>주차 {content.주차}</p>
+                </div>
+                <div className="flex gap-x-3 items-center">
+                  <FaCoins size="22px" />
+                  <p>{content.가격}원</p>
                 </div>
               </div>
               {/* wishlist */}

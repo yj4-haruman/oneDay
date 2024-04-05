@@ -51,7 +51,7 @@ export default function Popular() {
               },
             }}
             autoplay={{
-              delay: 500,
+              delay: 2500,
               disableOnInteraction: true,
             }}
           >

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import InputBox from "../component/InputBox";
 import Button from "../component/Button";
 import Socials from "../component/Socials";
@@ -7,22 +7,45 @@ import { useMutation, useQueryClient } from "react-query";
 import { apiPostLogin } from "../api";
 import useUser from "../component/useUser";
 import { IoMdArrowRoundBack } from "react-icons/io";
+// import React, { useEffect } from "react
 // import App from "../App";
 
 export default function LogIn() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
+    setError,
   } = useForm();
 
+
+
+
   const { mutate } = useMutation(apiPostLogin, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("getUser");
+    onSuccess: (data) => {
+      console.log(data);
+      if (data.result === true) { // 서버에서 성공 여부를 확인
+        // 로그인 성공 시 세션 스토리지에 데이터 저장
+        sessionStorage.setItem('userData', JSON.stringify(data));
+        queryClient.invalidateQueries("getUser");
+        navigate("/");
+      } else {
+        // 로그인 실패 시
+        sessionStorage.clear();
+        navigate("/users/login");
+      }
+    },
+    onSettled: (data) => {
+      if (data?.result === false) {
+        setError("username", {
+          message: data.message,
+        });
+      }
     },
   });
-
+  
   const onValid = (formData) => {
     mutate(formData);
   };
