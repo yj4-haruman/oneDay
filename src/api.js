@@ -102,9 +102,9 @@ export async function apiPostLogin(data) {
 }
 
 // 로그인 후 userData 요청
-export async function apiGetUser() {
+export async function apiGetUser(data) {
   try {
-    return await fetch(`${BASE_URL}/users/login-success`, {
+    return await fetch(`${BASE_URL}/users/login-success?token=${data?.queryKey[1].token}`, {
       method: "GET",
       credentials: "include",
     }).then((res) => res.json());

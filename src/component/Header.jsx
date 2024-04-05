@@ -4,6 +4,8 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
+import SearchPage from "./SearchPage";
+import { classList } from "../lib/classList";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +13,8 @@ export default function Header() {
   const [participants, setParticipants] = useState("");
   const [onlineOffline, setOnlineOffline] = useState("");
   const [priceRange, setPriceRange] = useState("");
+  const [filteredClasses, setFilteredClasses] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
 
   const handleReset = () => {
     setSearchQuery("");
@@ -18,15 +22,25 @@ export default function Header() {
     setParticipants("");
     setOnlineOffline("");
     setPriceRange("");
+    setFilteredClasses([]);
+    setIsSearched(false);
   };
 
-  const navigate = useNavigate();
   const userData = useUser();
   const userName = userData?.user?.username;
 
   const handleLogout = async () => {
     await apiPostLogout();
-    navigate("/");
+    sessionStorage.clear();
+    window.location.href = "/";
+  };
+
+  const handleSearch = () => {
+    const filtered = classList.filter((item) => {
+      return item.이름.includes(searchQuery) || item.종류.includes(searchQuery);
+    });
+    setFilteredClasses(filtered);
+    setIsSearched(true);
   };
 
   return (
@@ -38,14 +52,18 @@ export default function Header() {
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
-              {userName ? (
+              {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
                 <>
-                  <Link to="/users/profile">{userName}</Link> |{" "}
-                  <Link to="/logout" onClick={handleLogout}>
+                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
+                    {userName}님
+                  </Link>{" "}
+                  |{" "}
+                  <Link className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg" onClick={handleLogout}>
                     로그아웃
                   </Link>
                 </>
               ) : (
+                // 없으면 로그인 및 회원가입 링크 표시
                 <>
                   <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인
@@ -66,7 +84,7 @@ export default function Header() {
                   <div className="ffNetm">대구만의</div>
                   <div className="ffNetm">즐거운 하루하루</div>
                 </h1>
-                <h3 className="text-md md:text-xl ml-3 mt-4">
+                <h3 className="text-xl ml-3 mt-4">
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
                   특별한 원데이클래스를 제공해드립니다.
@@ -84,11 +102,11 @@ export default function Header() {
                 </div>
               </div>
               <div className="w-full flex justify-center ">
-                <input className="border-none w-[80%] h-[50px] pl-2 hover:ring-2 hover:ring-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <input className="border-2 w-[80%] h-[50px] pl-2 hover:border-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className="bg-slate-300 rounded-lg outline-none py-2 px-3" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       클래스 종류
                     </option>
@@ -111,8 +129,8 @@ export default function Header() {
                   </select>
                 </button>
                 {/* 세부 검색박스 버튼들 */}
-                <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3 text-center" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                <button className="w-fit bg-slate-300 rounded-2xl">
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -128,8 +146,8 @@ export default function Header() {
                     {/* 나머지 옵션들 추가 */}
                   </select>
                 </button>
-                <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                <button className="w-fit bg-slate-300 rounded-2xl">
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -141,8 +159,8 @@ export default function Header() {
                     </option>
                   </select>
                 </button>
-                <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none p-2 text-center" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                <button className="w-fit bg-slate-300 rounded-2xl">
+                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>
@@ -160,7 +178,7 @@ export default function Header() {
                 </button>
               </div>
               <div className="w-full flex justify-center mt-[0px] sm:mt-[15px]">
-                <button className="w-[50%] py-3 bg-mainBlue rounded-full">
+                <button className="w-[50%] py-3 bg-mainBlue rounded-full" onClick={handleSearch}>
                   <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
               </div>
@@ -168,6 +186,14 @@ export default function Header() {
           </div>
         </div>
       </header>
+      {/* modal */}
+      <div className="w-full h-full flex justify-center">
+        {isSearched && (
+          <div className="w-full h-full flex justify-center">
+            <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+          </div>
+        )}
+      </div>
     </>
   );
 }

@@ -5,8 +5,12 @@ import clock from "../img/clock.png";
 import phone from "../img/megaphone.png";
 import fire from "../img/celeb.png";
 import logo from "../img/logo.svg";
+import useUser from "../component/useUser";
 
 export default function Mypage() {
+  const userData = useUser();
+  const userName = userData?.data?.user?.username;
+  console.log(userName);
   return (
     <div className="w-full flex flex-col items-center p-4 gap-y-7">
       {/* home */}
@@ -21,7 +25,7 @@ export default function Mypage() {
       <div className="w-full pl-[10%]">
         <div className="w-fit">
           <p className="font-bold text-[50px] mb-10">
-            <span>ㅇㅇㅇ</span>님이 수강 신청한 클래스
+            <span>{userName}</span>님이 수강 신청한 클래스
           </p>
         </div>
       </div>

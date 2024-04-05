@@ -21,17 +21,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16" target="_blank" rel="noreferrer">
                   rocket
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8" target="_blank" rel="noreferrer">
                   headphone
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9" target="_blank" rel="noreferrer">
                   photos
                 </a>
               </li>
