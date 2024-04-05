@@ -110,6 +110,11 @@ export default function Footer() {
                   music
                 </a>
               </li>
+              <li>
+                <a href="https://firebasestorage.googleapis.com/v0/b/mochaclass-intro-web-4e0c0.appspot.com/o/FCMImages%2FNnQiF60kchMxIGQ0_6178f2d8a6f0394e051b45f2_1024x1024?alt=media" target="_blank" rel="noreferrer">
+                  doll
+                </a>
+              </li>
             </ul>
           </div>
         </div>
