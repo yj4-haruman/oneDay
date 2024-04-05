@@ -94,7 +94,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
         <div className="m-modal-text w-full items-center flex flex-col gap-y-2">
           {/* m-img */}
           <div className="w-full h-[400px] bg-gray-500 rounded-2xl overflow-hidden">
-            <img className="w-full" src={content.imageUrl} alt="Class" />
+            <img className="w-full h-full" src={content.imageUrl} alt="Class" />
           </div>
           {/* m-info */}
           <div className="w-[93%] flex flex-col bg-white rounded-2xl p-1 gap-y-2">
