@@ -8,7 +8,7 @@ import { IoLogoInstagram } from "react-icons/io";
 export default function Modal({ modalRef, imageUrl, onClose, content }) {
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
-      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>

@@ -139,6 +139,11 @@
   border-radius: 12px;
 }
 
+footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media screen and (max-width: 1024px) {
   .modal-content {
     display: none;
