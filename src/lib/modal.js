@@ -8,7 +8,7 @@ import { IoLogoInstagram } from "react-icons/io";
 export default function Modal({ modalRef, imageUrl, onClose, content }) {
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
-      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -31,10 +31,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   <FaLocationDot size="22px" />
                   <p>{content.주소}</p>
                 </div>
-                <div className="flex gap-x-3 items-center">
-                  <FaCoins size="22px" />
-                  <p>{content.가격}원</p>
-                </div>
+
                 <div className="flex gap-x-3 items-center">
                   <FaClock size="22px" />
                   <p>{content.시간}시간</p>
@@ -50,6 +47,10 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                 <div className="flex gap-x-3 items-center">
                   <FaCarSide size="22px" />
                   <p>주차 {content.주차}</p>
+                </div>
+                <div className="flex gap-x-3 items-center">
+                  <FaCoins size="22px" />
+                  <p>{content.가격}원</p>
                 </div>
               </div>
               {/* wishlist */}
@@ -76,7 +77,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
               <h4 className="font-semibold text-[27px]">선생님 소개</h4>
               <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.내용3 }} />
               <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
-                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
                   <IoLogoInstagram size="24px" color="gray" />
                   SNS
                 </a>
@@ -149,7 +150,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             <h4 className="font-semibold text-[27px]">선생님 소개</h4>
             <p className="w-full text-2xl" dangerouslySetInnerHTML={{ __html: content.내용3 }}></p>
             <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400 mb-8">
-              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
                 <IoLogoInstagram size="24px" color="gray" />
                 SNS
               </a>

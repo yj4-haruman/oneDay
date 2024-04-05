@@ -4,6 +4,7 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -61,10 +62,14 @@ export default function Header() {
           <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
-              <div className="px-4">
-                <h2 className="font-semibold mb-3 text-[#333] h1Tit">Lorem ipsum dolor sit</h2>
-                <h1 className="font-bold text-[#333] h1Tit">
-                  Lorem ip
+              <div className="px-4 select-none">
+                <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
+                <h1 className="font-bold flex flex-col gap-y-3 text-[#333] ffNetm">
+                  <div className="ffNetm">대구만의</div>
+                  <div className="ffNetm">즐거운 하루하루</div>
+                </h1>
+                <h3 className="text-md md:text-xl ml-3 mt-4">
+                  &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
                   Lorem ipsum
                 </h1>
@@ -81,11 +86,11 @@ export default function Header() {
                 </div>
               </div>
               <div className="w-full flex justify-center ">
-                <input className="border-2 w-[80%] h-[50px] pl-2 text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <input className="border-none w-[80%] h-[50px] pl-2 hover:ring-2 hover:ring-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className="bg-slate-300 rounded-lg outline-none py-2 px-3" value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       클래스 종류
                     </option>
@@ -108,8 +113,8 @@ export default function Header() {
                   </select>
                 </button>
                 {/* 세부 검색박스 버튼들 */}
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3 text-center" value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -125,8 +130,8 @@ export default function Header() {
                     {/* 나머지 옵션들 추가 */}
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -138,8 +143,8 @@ export default function Header() {
                     </option>
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none p-2 text-center" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>
