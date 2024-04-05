@@ -14,7 +14,7 @@ export default function SearchPage({ searchQuery }) {
     <div className='w-full flex justify-center'>
       <div className='w-[75%] h-fit flex'>
         {filteredClasses.map(item => (
-          <div key={item.id} className='w-full flex h-full shadow-lg'>
+          <div key={item.id} className='w-full sm:flex-row flex flex-col h-full shadow-lg'>
             {/* 이미지 */}
             <div className="w-full h-full">
               <img src={item.imageUrl} alt="" className="w-full h-full object-cover" />
@@ -32,13 +32,13 @@ export default function SearchPage({ searchQuery }) {
               {/* 소개글 */}
               <div className="mt-4 flex flex-col gap-y-6">
                 <div>
-                    <p><strong>소개글:<br/></strong><span dangerouslySetInnerHTML={{ __html: item.내용 }}></span></p>
+                    <p><strong>소개글<br/></strong><span dangerouslySetInnerHTML={{ __html: item.내용 }}></span></p>
                 </div>
                 <div>
-                    <p><strong>이런 분들에게 추천:</strong><span dangerouslySetInnerHTML={{ __html: item.내용2 }}></span></p>
+                    <p><strong>이런 분들에게 추천</strong><span dangerouslySetInnerHTML={{ __html: item.내용2 }}></span></p>
                 </div>
                 <div>
-                    <p><strong>강사 소개:</strong><span dangerouslySetInnerHTML={{ __html: item.내용3 }}></span></p>
+                    <p><strong>강사 소개<br/></strong><span dangerouslySetInnerHTML={{ __html: item.내용3 }}></span></p>
                 </div>
               </div>
             </div>
