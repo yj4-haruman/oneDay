@@ -4,6 +4,8 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
+import SearchPage from "./SearchPage";
+import { classList } from "../lib/classList";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +13,8 @@ export default function Header() {
   const [participants, setParticipants] = useState("");
   const [onlineOffline, setOnlineOffline] = useState("");
   const [priceRange, setPriceRange] = useState("");
+  const [filteredClasses, setFilteredClasses] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
 
   const handleReset = () => {
     setSearchQuery("");
@@ -18,6 +22,8 @@ export default function Header() {
     setParticipants("");
     setOnlineOffline("");
     setPriceRange("");
+    setFilteredClasses([]);
+    setIsSearched(false);
   };
 
   const navigate = useNavigate();
@@ -27,6 +33,14 @@ export default function Header() {
   const handleLogout = async () => {
     await apiPostLogout();
     navigate("/");
+  };
+
+  const handleSearch = () => {
+    const filtered = classList.filter(item => {
+      return item.이름.includes(searchQuery) || item.종류.includes(searchQuery);
+    });
+    setFilteredClasses(filtered);
+    setIsSearched(true);
   };
 
   return (
@@ -160,7 +174,7 @@ export default function Header() {
                 </button>
               </div>
               <div className="w-full flex justify-center mt-[0px] sm:mt-[15px]">
-                <button className="w-[50%] py-3 bg-mainBlue rounded-full">
+                <button className="w-[50%] py-3 bg-mainBlue rounded-full" onClick={handleSearch}>
                   <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
               </div>
@@ -168,6 +182,14 @@ export default function Header() {
           </div>
         </div>
       </header>
+        {/* modal */}
+        <div className="w-full h-full flex justify-center">
+        {isSearched && (
+              <div className="w-full h-full flex justify-center">
+                <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+              </div>
+            )}  
+      </div>
     </>
   );
 }
