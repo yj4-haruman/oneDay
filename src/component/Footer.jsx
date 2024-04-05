@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../img/logo.svg";
 import { FaGithub, FaRightToBracket, FaSplotch } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <p>
             <img src={logo} alt="하루만 로고" className="h-[50px]" />
           </p>
-          <div className="max-w-[600px]">
+          <div className="max-w-[550px]">
             <p className="font-semibold uppercase mb-1">Image source</p>
             <ul className="flex flex-wrap gap-x-4">
               <li>
@@ -96,7 +97,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://allabout-japan.com/ko/article/7167/" target="_blank" rel="noreferrer">
-                  snak
+                  snack
                 </a>
               </li>
               <li>
@@ -116,14 +117,16 @@ export default function Footer() {
         <ul className="flex items-center gap-6">
           <li>
             <a href="https://github.com/yj4-haruman/oneDay" rel="noreferrer" target="_blank">
-              <FaGithub size="30px" color="#555" />
+              <FaGithub size="35px" color="#239AFF" />
             </a>
           </li>
           <li>
-            <FaSplotch size="30px" color="#555" />
+            <FaSplotch size="35px" color="#239AFF" />
           </li>
           <li>
-            <FaRightToBracket size="30px" color="#555" />
+            <Link to="/users/login">
+              <FaRightToBracket size="35px" color="#239AFF" />
+            </Link>
           </li>
         </ul>
       </div>

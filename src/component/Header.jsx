@@ -26,7 +26,6 @@ export default function Header() {
     setIsSearched(false);
   };
 
-
   const userData = useUser();
   const userName = userData?.user?.username;
 
@@ -37,7 +36,7 @@ export default function Header() {
   };
 
   const handleSearch = () => {
-    const filtered = classList.filter(item => {
+    const filtered = classList.filter((item) => {
       return item.이름.includes(searchQuery) || item.종류.includes(searchQuery);
     });
     setFilteredClasses(filtered);
@@ -53,14 +52,18 @@ export default function Header() {
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
-            {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
+              {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
                 <>
-                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">{userName}님</Link> |{" "}
+                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
+                    {userName}님
+                  </Link>{" "}
+                  |{" "}
                   <Link className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg" onClick={handleLogout}>
                     로그아웃
                   </Link>
                 </>
-              ) : ( // 없으면 로그인 및 회원가입 링크 표시
+              ) : (
+                // 없으면 로그인 및 회원가입 링크 표시
                 <>
                   <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인
@@ -183,13 +186,13 @@ export default function Header() {
           </div>
         </div>
       </header>
-        {/* modal */}
-        <div className="w-full h-full flex justify-center">
+      {/* modal */}
+      <div className="w-full h-full flex justify-center">
         {isSearched && (
-              <div className="w-full h-full flex justify-center">
-                <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
-              </div>
-            )}  
+          <div className="w-full h-full flex justify-center">
+            <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+          </div>
+        )}
       </div>
     </>
   );

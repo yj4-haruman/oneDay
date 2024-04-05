@@ -30,7 +30,6 @@ export default function ClassCard(props) {
       {/* class price */}
       <div className="flex justify-between px-2">
         <div className={`flex gap-x-2 items-center ${props.buttonClass}`}>
-          {/* {props.buttonIcon} */}
           <FaRegStar />
           {props.buttonText}
         </div>

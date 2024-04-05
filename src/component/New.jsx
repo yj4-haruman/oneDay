@@ -20,7 +20,6 @@ export default function Popular() {
   const closeModal = (e) => {
     if (modalRef.current === e.target) setShowModal(false);
     else if (e.target.classList[0] === "close") setShowModal(false);
-    setShowModal(false);
     setSelectedImage("");
     e.stopPropagation();
   };
@@ -34,7 +33,7 @@ export default function Popular() {
             {/* title */}
             <h2 className="font-black text-[35px]">새로운 클래스</h2>
             {/* title des */}
-            <div className="font-semibold text-[20px]">어떤 클래스가 좋을지 모르겠다면? 많은 사람이 찾는 클래스부터 시작해보세요.</div>
+            <div className="font-semibold text-[20px]">지금 새로 나온 원데이 클래스는 어떠세요?</div>
           </div>
           {/* one-class */}
           <Swiper
@@ -54,7 +53,7 @@ export default function Popular() {
           >
             {classListNew.map((item, index) => (
               <SwiperSlide key={index}>
-                <ClassCard openModal={openModal} 내용={item} img={item.imageUrl} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="구독하기" />
+                <ClassCard openModal={openModal} 내용={item} img={item.imageUrl} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} buttonText="수강 신청" />
               </SwiperSlide>
             ))}
           </Swiper>
