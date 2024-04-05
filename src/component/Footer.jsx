@@ -15,21 +15,29 @@ export default function Footer() {
             <p className="font-semibold uppercase mb-1">Image source</p>
             <ul className="flex flex-wrap gap-x-4 gap-y-1">
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-female-character-working-laptop-while-sitting-chair_13678511.htm#position=11" target="_blank">
+                <a href="https://www.freepik.com/free-psd/3d-female-character-working-laptop-while-sitting-chair_13678511.htm#position=11" target="_blank" rel="noreferrer">
                   character
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16">rocket</a>
+                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16" rel="noreferrer">
+                  rocket
+                </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8">headphone</a>
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8" rel="noreferrer">
+                  headphone
+                </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9">photos</a>
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9" rel="noreferrer">
+                  photos
+                </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-photo/3d-render-notification-bell-icon-new-email-message_34503708.htm#position=3">bell</a>
+                <a href="https://www.freepik.com/free-photo/3d-render-notification-bell-icon-new-email-message_34503708.htm#position=3" rel="noreferrer">
+                  bell
+                </a>
               </li>
             </ul>
           </div>
@@ -37,7 +45,7 @@ export default function Footer() {
         {/* 푸터 오른쪽 */}
         <ul className="flex items-center gap-6">
           <li>
-            <a href="https://github.com/yj4-haruman/oneDay" target="_blank">
+            <a href="https://github.com/yj4-haruman/oneDay" rel="noreferrer" target="_blank">
               <FaGithub size="30px" color="#555" />
             </a>
           </li>

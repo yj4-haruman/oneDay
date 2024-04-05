@@ -76,7 +76,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
               <h4 className="font-semibold text-[27px]">선생님 소개</h4>
               <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.내용3 }} />
               <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
-                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
                   <IoLogoInstagram size="24px" color="gray" />
                   SNS
                 </a>
@@ -149,7 +149,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             <h4 className="font-semibold text-[27px]">선생님 소개</h4>
             <p className="w-full text-2xl" dangerouslySetInnerHTML={{ __html: content.내용3 }}></p>
             <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400 mb-8">
-              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600">
+              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
                 <IoLogoInstagram size="24px" color="gray" />
                 SNS
               </a>

@@ -50,6 +50,10 @@ export default function Popular() {
                 slidesPerView: 4,
               },
             }}
+            autoplay={{
+              delay: 500,
+              disableOnInteraction: true,
+            }}
           >
             {classList.map((item, index) => (
               <SwiperSlide key={index}>

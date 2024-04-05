@@ -1,5 +1,4 @@
 import React from "react";
-import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ClassCard from "../component/ClassCard";
 import clock from "../img/clock.png";
