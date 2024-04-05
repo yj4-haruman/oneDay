@@ -26,7 +26,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
 
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
-      <motion.div initial={{ opacity: 0.5, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} className="modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className="modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -143,7 +143,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
         </div>
       </motion.div>
       {/* mobile mode */}
-      <div className="m-modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className="m-modal-content overflow-y-scroll">
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -187,7 +187,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             </div>
             {/* 수강 신청 */}
             <form onSubmit={handleSubmit(onsubmit)}>
-              <h3 className="mt-6 font-medium text-xl">날짜 선택</h3>
+              <h3 className="mt-8 font-medium text-xl mb-2">수업 날짜</h3>
               <Controller
                 control={control}
                 name="data"
@@ -207,7 +207,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   </LocalizationProvider>
                 )}
               />
-              <h3 className="mt-4 font-medium text-xl">인원수</h3>
+              <h3 className="mt-8 font-medium text-xl mb-2">참가 인원</h3>
               <div className="flex items-center relative">
                 <Controller
                   control={control}
@@ -217,7 +217,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                     <input
                       {...field}
                       type="text"
-                      className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-[230px] h-12 outline-none"
+                      className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-full h-12 outline-none"
                       onChange={(e) => {
                         const inputNum = parseInt(e.target.value);
                         if (!isNaN(inputNum) && inputNum >= 1) {
@@ -229,7 +229,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                 />
                 <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
               </div>
-              <button type="submit" className="w-full h-[60px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 text-xl mt-4 font-bold text-[20px]">
+              <button type="submit" className="w-full h-[60px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 text-xl mt-6 font-bold text-[20px]">
                 <FaRegStar />
                 수강 신청
               </button>
@@ -251,7 +251,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
