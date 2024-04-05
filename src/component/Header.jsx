@@ -4,6 +4,7 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -88,7 +89,7 @@ export default function Header() {
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className="bg-slate-300 rounded-lg outline-none py-2 px-3" value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       클래스 종류
                     </option>
@@ -111,8 +112,8 @@ export default function Header() {
                   </select>
                 </button>
                 {/* 세부 검색박스 버튼들 */}
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3 text-center" value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -128,8 +129,8 @@ export default function Header() {
                     {/* 나머지 옵션들 추가 */}
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -141,8 +142,8 @@ export default function Header() {
                     </option>
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                <button className="w-fit">
+                  <select className=" bg-slate-300 rounded-lg outline-none p-2 text-center" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>
