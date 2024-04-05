@@ -27,7 +27,7 @@ export default function Popular() {
 
   return (
     <>
-      <div className="w-full flex px-5 my-16">
+      <section className="w-full flex px-5 my-16">
         <div className="w-full h-full ">
           {/* title */}
           <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
@@ -59,7 +59,7 @@ export default function Popular() {
             ))}
           </Swiper>
         </div>
-      </div>
+      </section>
       {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );

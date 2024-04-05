@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="w-full flex justify-center">
+      <header className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div className="w-[114px]">
@@ -167,7 +167,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 }
