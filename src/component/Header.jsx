@@ -84,7 +84,7 @@ export default function Header() {
                 </div>
               </div>
               <div className="w-full flex justify-center ">
-                <input className="border-2 w-[80%] h-[50px] pl-2 text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <input className="border-2 w-[80%] h-[50px] pl-2 hover:border-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
