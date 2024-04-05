@@ -21,7 +21,7 @@ export default function Mypage() {
       <div className="w-full pl-[10%]">
         <div className="w-fit">
           <p className="font-bold text-[50px] mb-10">
-            <span>ㅇㅇㅇ</span>님의 구독 클래스
+            <span>ㅇㅇㅇ</span>님이 수강 신청한 클래스
           </p>
         </div>
       </div>
@@ -39,19 +39,19 @@ export default function Mypage() {
                 <span className="font-bold text-[#a23fff]">알림톡&nbsp;&nbsp;</span>
                 <br /> <span className="font-medium text-[#b858ed]">신청하고</span>
                 <br />
-                <span className="font-bold text-[#a23fff]">구독한 클래스</span>
+                <span className="font-bold text-[#a23fff]">수강 신청</span>
                 <br /> <span className="font-bold text-[#a23fff]">알림 받자!</span>
               </div>
             </div>
           </div>
         </div>
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
+        <ClassCard buttonText="수강 취소" />
       </div>
     </div>
   );

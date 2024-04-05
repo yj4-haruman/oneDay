@@ -103,6 +103,10 @@ select {
   position: relative;
 }
 
+.modal .css-10o2lyd-MuiStack-root {
+  padding: 0;
+}
+
 .modal-content h4,
 .m-modal-content h4 {
   position: relative;

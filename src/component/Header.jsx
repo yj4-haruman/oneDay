@@ -4,7 +4,6 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
-import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
