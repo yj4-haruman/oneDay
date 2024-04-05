@@ -34,7 +34,7 @@ export default function Popular() {
             {/* title */}
             <h2 className="font-black text-[35px] flex items-center gap-1">
               새로운 클래스
-              <FaSeedling color="#239aff" />
+              <FaSeedling color="#ffcc32" />
             </h2>
             {/* title des */}
             <div className="font-semibold text-[20px]">지금 새로 나온 원데이 클래스는 어떠세요?</div>

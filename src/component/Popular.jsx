@@ -33,7 +33,7 @@ export default function Popular() {
           <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
             {/* title */}
             <h2 className="font-black text-[35px] flex items-center gap-1">
-              인기 클래스 <FaFire color="#239aff" />
+              인기 클래스 <FaFire color="#ffcc32" />
             </h2>
             {/* title des */}
             <div className="font-semibold text-[20px]">어떤 클래스가 좋을지 모르겠다면? 많은 사람이 찾는 클래스부터 시작해보세요.</div>
