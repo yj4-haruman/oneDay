@@ -106,7 +106,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%EB%A7%88%EC%9D%B4%ED%81%AC%EA%B0%80-%EC%9E%88%EB%8A%94-%EB%82%A8%EC%9E%90-%EC%98%86%EC%97%90%EC%84%9C-dj-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%A5%BC-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%82%A8%EC%9E%90-EaCidUroyVE" target="_blank" rel="noreferrer">
+                <a href="https://www.freepik.com/free-photo/headphones-near-pile-sheet-music_2070303.htm#fromView=search&page=1&position=45&uuid=5b422ee8-ec7c-4f21-a80d-7edb5813fca3" target="_blank" rel="noreferrer">
                   music
                 </a>
               </li>

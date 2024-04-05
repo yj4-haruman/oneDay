@@ -102,7 +102,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                       <input
                         {...field}
                         type="text"
-                        className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-[230px] h-12 outline-none"
+                        className="ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-[230px] h-12 outline-none"
                         onChange={(e) => {
                           const inputNum = parseInt(e.target.value);
                           if (!isNaN(inputNum) && inputNum >= 1) {
@@ -217,7 +217,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                     <input
                       {...field}
                       type="text"
-                      className="ring-1 ring-gray-300 px-3 rounded-md text-lg w-full h-12 outline-none"
+                      className="ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full h-12 outline-none"
                       onChange={(e) => {
                         const inputNum = parseInt(e.target.value);
                         if (!isNaN(inputNum) && inputNum >= 1) {
@@ -236,7 +236,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             </form>
           </div>
           {/* m-des */}
-          <div className="w-[93%] flex flex-col gap-y-2 py-8 px-6 mt-4">
+          <div className="w-[93%] flex flex-col gap-y-2 py-8 mt-4">
             <h4 className="font-semibold text-[27px]">클래스 소개</h4>
             <p className="w-full text-2xl mb-10" dangerouslySetInnerHTML={{ __html: content.내용 }}></p>
             <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
