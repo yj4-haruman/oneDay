@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { apiGetUser } from "../api";
 
 export default function useUser() {
-  const { data } = useQuery("getUser", apiGetUser);
-  return data;
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const Storage = sessionStorage.getItem('userData');
+    if (Storage) {
+      setUserData(JSON.parse(Storage));
+    }
+  }, []);
+  console.log("useruser",userData?.token);
+  const { data } = useQuery(["getUser",{token:userData?.token}], apiGetUser);
+
+  return userData || data;
 }

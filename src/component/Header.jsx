@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
@@ -20,32 +20,33 @@ export default function Header() {
     setPriceRange("");
   };
 
-  const navigate = useNavigate();
   const userData = useUser();
-  const userName = userData?.user?.username;
-
+  const userName = userData?.data?.user?.username; // 유저 아이디 추출
+  // console.log(userData);
+  
   const handleLogout = async () => {
     await apiPostLogout();
-    navigate("/");
+    sessionStorage.clear();
+    window.location.href = "/";
   };
 
   return (
     <>
-      <header className="w-full flex justify-center">
+      <div className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div className="w-[114px]">
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
-              {userName ? (
+              {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
                 <>
-                  <Link to="/users/profile">{userName}</Link> |{" "}
-                  <Link to="/logout" onClick={handleLogout}>
+                  <Link to="/users/mypage">{userName}</Link> |{" "}
+                  <Link onClick={handleLogout}>
                     로그아웃
                   </Link>
                 </>
-              ) : (
+              ) : ( // 없으면 로그인 및 회원가입 링크 표시
                 <>
                   <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인
@@ -60,17 +61,13 @@ export default function Header() {
           <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
-              <div className="px-4 select-none">
-                <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
-                <h1 className="font-bold flex flex-col gap-y-3 text-[#333] ffNetm">
-                  <div className="ffNetm">대구만의</div>
-                  <div className="ffNetm">즐거운 하루하루</div>
-                </h1>
-                <h3 className="text-xl ml-3 mt-4">
-                  &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
+              <div className="px-4">
+                <h2 className="font-semibold mb-3 text-[#333] h1Tit">Lorem ipsum dolor sit</h2>
+                <h1 className="font-bold text-[#333] h1Tit">
+                  Lorem ip
                   <br />
-                  특별한 원데이클래스를 제공해드립니다.
-                </h3>
+                  Lorem ipsum
+                </h1>
               </div>
             </div>
           </div>
@@ -159,15 +156,15 @@ export default function Header() {
                   </select>
                 </button>
               </div>
-              <div className="w-full flex justify-center mt-[0px] sm:mt-[15px]">
-                <button className="w-[50%] py-3 bg-mainBlue rounded-full">
-                  <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
+              <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
+                <button className="w-[50%] py-5 bg-mainBlue rounded-2xl">
+                  <p className="font-bold text-[20px] text-white">강좌 검색하기</p>
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
     </>
   );
 }

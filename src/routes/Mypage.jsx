@@ -2,8 +2,12 @@ import React from "react";
 import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ClassCard from "../component/ClassCard";
+import useUser from "../component/useUser";
 
 export default function Mypage() {
+  const userData = useUser();
+  const userName = userData?.data?.user?.username;
+  console.log(userName );
   return (
     <div className="w-full flex flex-col items-center p-4 gap-y-7">
       {/* home */}
@@ -17,7 +21,7 @@ export default function Mypage() {
       {/* user name */}
       <div className="w-full pl-[10%]">
         <div className="w-fit">
-          <p className="font-black text-[50px]">팀장 장바구니👾</p>
+          <p className="font-black text-[50px]">{userName}님의 장바구니👾</p>
         </div>
       </div>
       {/* alarm */}
