@@ -71,7 +71,7 @@ export async function apiPostNoticeDelete(id) {
 
 // 회원가입하기
 export async function apiPostRegister(data) {
-  console.log(data);
+  // console.log(data);
   try {
     return await fetch(`${BASE_URL}/users/register`, {
       method: "POST",
