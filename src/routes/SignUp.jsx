@@ -99,6 +99,22 @@ export default function SignUp() {
               }}
               errors={errors?.email?.message}
             />
+            {/* 전화번호 */}
+            <InputBox
+              register={register}
+              name="phone"
+              type="tel"
+              placeholder="전화번호"
+              errorOption={{
+                required: "전화번호는 필수 입력사항입니다",
+                pattern: {
+                  value: /^\d{3}-\d{3,4}-\d{4}$/,
+                  message: "전화번호 형식을 지켜주세요 (예: 010-1234-5678)",
+                },
+              }}
+              errors={errors?.phone?.message}
+            />
+
             {/* 비밀번호 */}
             <InputBox
               register={register}

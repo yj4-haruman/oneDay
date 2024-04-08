@@ -13,6 +13,7 @@ export default function useUser() {
   }, []);
   console.log("useruser",userData?.token);
   const { data } = useQuery(["getUser",{token:userData?.token}], apiGetUser);
-
-  return userData || data;
+  // console.log(data?.user);
+  return data|| userData;
 }
+
