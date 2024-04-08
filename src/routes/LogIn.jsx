@@ -1,4 +1,4 @@
-import { Link,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputBox from "../component/InputBox";
 import Button from "../component/Button";
 import Socials from "../component/Socials";
@@ -20,15 +20,13 @@ export default function LogIn() {
     setError,
   } = useForm();
 
-
-
-
   const { mutate } = useMutation(apiPostLogin, {
     onSuccess: (data) => {
       console.log(data);
-      if (data.result === true) { // 서버에서 성공 여부를 확인
+      if (data.result === true) {
+        // 서버에서 성공 여부를 확인
         // 로그인 성공 시 세션 스토리지에 데이터 저장
-        sessionStorage.setItem('userData', JSON.stringify(data));
+        sessionStorage.setItem("userData", JSON.stringify(data));
         queryClient.invalidateQueries("getUser");
         navigate("/");
       } else {
@@ -45,7 +43,7 @@ export default function LogIn() {
       }
     },
   });
-  
+
   const onValid = (formData) => {
     mutate(formData);
   };
@@ -54,7 +52,7 @@ export default function LogIn() {
 
   return (
     <>
-      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1">
+      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1 pt-2">
         <IoMdArrowRoundBack size="35px" />
         <span className="font-semibold">홈페이지</span>
       </Link>

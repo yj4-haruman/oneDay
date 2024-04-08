@@ -28,12 +28,8 @@ export default function ClassCard(props) {
         <p>{props.이름}</p>
       </div>
       {/* class price */}
-      <div className="flex justify-between px-2">
-        <div className={`flex gap-x-2 items-center ${props.buttonClass}`}>
-          <FaRegStar />
-          {props.buttonText}
-        </div>
-        <div>{props.가격}원</div>
+      <div className="grid px-2 text-lg">
+        <div className="justify-self-end">{props.가격}원</div>
       </div>
     </div>
   );

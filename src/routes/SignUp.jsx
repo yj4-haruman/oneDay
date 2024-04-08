@@ -39,7 +39,7 @@ export default function SignUp() {
 
   return (
     <>
-      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1">
+      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1 pt-2">
         <IoMdArrowRoundBack size="35px" />
         <span className="font-semibold">홈페이지</span>
       </Link>

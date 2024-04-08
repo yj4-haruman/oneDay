@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
 import SearchPage from "./SearchPage";
 import { classList } from "../lib/classList";
+import angleDown from "../img/angleDown.svg";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -106,9 +107,9 @@ export default function Header() {
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-[29px] cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
-                      클래스 종류
+                      분류
                     </option>
                     <option value="drawing" className="bg-white">
                       드로잉
@@ -129,8 +130,8 @@ export default function Header() {
                   </select>
                 </button>
                 {/* 세부 검색박스 버튼들 */}
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                <button className="w-fit">
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-[29px] cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -146,8 +147,8 @@ export default function Header() {
                     {/* 나머지 옵션들 추가 */}
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                <button className="w-fit">
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-8 cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -159,8 +160,8 @@ export default function Header() {
                     </option>
                   </select>
                 </button>
-                <button className="w-fit bg-slate-300 rounded-2xl">
-                  <select className=" bg-slate-300 rounded-2xl outline-none p-2 cursor-pointer" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                <button className="w-fit">
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>

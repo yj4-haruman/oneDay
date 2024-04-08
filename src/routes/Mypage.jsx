@@ -49,13 +49,13 @@ export default function Mypage() {
             </div>
           </div>
         </div>
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
-        <ClassCard buttonText="수강 취소" />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
       </div>
     </div>
   );
