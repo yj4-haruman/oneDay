@@ -1,13 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../component/Button";
 import InputBox from "../component/InputBox";
-import { FaEye } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { apiPostRegister } from "../api";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useState } from "react";
 
 export default function SignUp() {
+  const [passView, setPassView] = useState(true);
+  const [pass2View, setPass2View] = useState(true);
+  const onEyeClick = () => setPassView(!passView);
+  const onEye2Click = () => setPass2View(!pass2View);
+  const [checked, setChecked] = useState(false);
+
+  const handleChecked = (e) => {
+    setChecked(e.target.checked);
+  };
+
   const {
     register,
     handleSubmit,
@@ -43,13 +54,13 @@ export default function SignUp() {
         <IoMdArrowRoundBack size="35px" />
         <span className="font-semibold">홈페이지</span>
       </Link>
-      <div className="w-full flex justify-center py-16">
+      <div className="w-full flex justify-center py-16 select-none">
         <div className="max-w-screen-sm w-full flex flex-col gap-8 px-4">
           {/* 회원가입 타이틀 */}
           <div className="flex flex-col gap-2">
             <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">회원가입</div>
             <div className="w-full text-center text-neutral-600">
-              회원가입이 되어 있다면
+              회원가입이 되어 있다면&nbsp;
               <Link to="/users/login" className="hover:text-mainBlue hover:underline underline-offset-2">
                 로그인하기
               </Link>
@@ -101,13 +112,12 @@ export default function SignUp() {
               }}
               errors={errors?.phone?.message}
             />
-
             {/* 비밀번호 */}
             <div className="relative">
               <InputBox
                 register={register}
                 name="password"
-                type="password"
+                type={passView ? "password" : "text"}
                 placeholder="비밀번호"
                 errorOption={{
                   required: "비밀번호를 적어주세요.",
@@ -118,23 +128,30 @@ export default function SignUp() {
                 }}
                 errors={errors?.password?.message}
               />
-              <FaEye className="absolute" />
+              {passView ? <FaEye onClick={onEyeClick} className="absolute top-[10px] right-[18px] cursor-pointer" size="26px" color="#ccc" /> : <FaEyeSlash onClick={onEyeClick} className="absolute top-[8px] right-4 cursor-pointer" size="30px" color="#ccc" />}
             </div>
             {/* 비밀번호 확인 */}
-            <InputBox
-              register={register}
-              name="password2"
-              type="password"
-              placeholder="비밀번호 확인"
-              errorOption={{
-                required: "비밀번호를 확인해주세요.",
-                validate: (value, form) => {
-                  return value === form.password || "확인을 위해 비밀번호를 다시 입력해주세요.";
-                },
-              }}
-              errors={errors?.password2?.message}
-            />
-            <Button type="submit" text="회원가입" />
+            <div className="relative">
+              <InputBox
+                register={register}
+                name="password2"
+                type={pass2View ? "password" : "text"}
+                placeholder="비밀번호 확인"
+                errorOption={{
+                  required: "비밀번호를 확인해주세요.",
+                  validate: (value, form) => {
+                    return value === form.password || "확인을 위해 비밀번호를 다시 입력해주세요.";
+                  },
+                }}
+                errors={errors?.password2?.message}
+              />
+              {pass2View ? <FaEye onClick={onEye2Click} className="absolute top-[10px] right-[18px] cursor-pointer" size="26px" color="#ccc" /> : <FaEyeSlash onClick={onEye2Click} className="absolute top-[8px] right-4 cursor-pointer" size="30px" color="#ccc" />}
+            </div>
+            <div className="text-center">
+              <input type="checkbox" id="agree" onChange={handleChecked} />
+              <label htmlFor="agree">&nbsp;&nbsp;개인정보 제공 및 카카오톡을 통한 알림톡 전송에 동의합니다.</label>
+            </div>
+            <Button type="submit" text="회원가입" disabled={!checked} />
           </form>
         </div>
       </div>

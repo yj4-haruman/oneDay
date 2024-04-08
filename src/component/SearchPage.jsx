@@ -29,7 +29,7 @@ export default function SearchPage({ searchQuery }) {
   return (
     <>
       <div className="w-full flex justify-center">
-        <div className="h-fit flex flex-wrap gap-x-[50px] mt-28 gap-y-10">
+        <div className="h-fit flex flex-wrap gap-x-[50px] mt-28 md:mt-6 gap-y-10">
           {filteredClasses.length === 0 ? (
             <p className="text-xl underline underline-offset-[8px] font-semibold text-center">입력하신 이름의 클래스는 없습니다</p>
           ) : (
