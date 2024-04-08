@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
+import SearchPage from "./SearchPage";
+import { classList } from "../lib/classList";
+import angleDown from "../img/angleDown.svg";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +14,8 @@ export default function Header() {
   const [participants, setParticipants] = useState("");
   const [onlineOffline, setOnlineOffline] = useState("");
   const [priceRange, setPriceRange] = useState("");
+  const [filteredClasses, setFilteredClasses] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
 
   const handleReset = () => {
     setSearchQuery("");
@@ -18,6 +23,8 @@ export default function Header() {
     setParticipants("");
     setOnlineOffline("");
     setPriceRange("");
+    setFilteredClasses([]);
+    setIsSearched(false);
   };
 
   const userData = useUser();
@@ -31,9 +38,17 @@ export default function Header() {
     window.location.href = "/";
   };
 
+  const handleSearch = () => {
+    const filtered = classList.filter((item) => {
+      return item.이름.includes(searchQuery) || item.종류.includes(searchQuery);
+    });
+    setFilteredClasses(filtered);
+    setIsSearched(true);
+  };
+
   return (
     <>
-      <div className="w-full flex justify-center">
+      <header className="w-full flex justify-center">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div className="w-[114px]">
@@ -68,10 +83,10 @@ export default function Header() {
                   <div className="ffNetm">대구만의</div>
                   <div className="ffNetm">즐거운 하루하루</div>
                 </h1>
-                <h3 className="text-md md:text-xl ml-3 mt-4">
+                <h3 className="text-xl ml-3 mt-4">
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
-                  Lorem ipsum
+                  특별한 원데이클래스를 제공해드립니다.
                 </h3>
               </div>
             </div>
@@ -86,13 +101,13 @@ export default function Header() {
                 </div>
               </div>
               <div className="w-full flex justify-center ">
-                <input className="border-none w-[80%] h-[50px] pl-2 hover:ring-2 hover:ring-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <input className="border-2 w-[80%] h-[50px] pl-2 hover:border-[#239AFF] focus:outline-none focus:ring-2 focus:ring-[#239AFF]  text-center placeholder-center rounded-2xl" type="text" placeholder="검색어 입력창" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               </div>
               <div className="w-full flex flex-wrap justify-center text-center gap-4 py-6">
                 <button className="w-fit">
-                  <select className="bg-slate-300 rounded-lg outline-none py-2 px-3" value={classType} onChange={(e) => setClassType(e.target.value)}>
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-[29px] cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={classType} onChange={(e) => setClassType(e.target.value)}>
                     <option value="" disabled className="bg-white">
-                      클래스 종류
+                      분류
                     </option>
                     <option value="drawing" className="bg-white">
                       드로잉
@@ -114,7 +129,7 @@ export default function Header() {
                 </button>
                 {/* 세부 검색박스 버튼들 */}
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3 text-center" value={participants} onChange={(e) => setParticipants(e.target.value)}>
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-[29px] cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={participants} onChange={(e) => setParticipants(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       참가 인원
                     </option>
@@ -131,7 +146,7 @@ export default function Header() {
                   </select>
                 </button>
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none py-2 px-3" value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 pr-8 cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={onlineOffline} onChange={(e) => setOnlineOffline(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       온/오프라인
                     </option>
@@ -144,7 +159,7 @@ export default function Header() {
                   </select>
                 </button>
                 <button className="w-fit">
-                  <select className=" bg-slate-300 rounded-lg outline-none p-2 text-center" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+                  <select className="border-2 border-gray-400 rounded-2xl outline-none p-2 cursor-pointer" style={{ background: `url(${angleDown}) no-repeat 90% 50%/15px` }} value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
                     <option value="" disabled className="bg-white">
                       가격
                     </option>
@@ -161,14 +176,22 @@ export default function Header() {
                   </select>
                 </button>
               </div>
-              <div className="w-full flex justify-center mt-[-12px] sm:mt-[0px]">
-                <button className="w-[50%] py-5 bg-mainBlue rounded-2xl">
-                  <p className="font-bold text-[20px] text-white">강좌 검색하기</p>
+              <div className="w-full flex justify-center mt-[0px] sm:mt-[15px]">
+                <button className="w-[50%] py-3 bg-mainBlue rounded-full" onClick={handleSearch}>
+                  <p className="font-bold text-[26px] text-white">강좌 검색하기</p>
                 </button>
               </div>
             </div>
           </div>
         </div>
+      </header>
+      {/* modal */}
+      <div className="w-full h-full flex justify-center">
+        {isSearched && (
+          <div className="w-full h-full flex justify-center">
+            <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+          </div>
+        )}
       </div>
     </>
   );

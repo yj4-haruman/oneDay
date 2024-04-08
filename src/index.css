@@ -103,11 +103,32 @@ select {
   position: relative;
 }
 
+.modal .css-10o2lyd-MuiStack-root {
+  padding: 0;
+}
+
 .modal-content h4,
 .m-modal-content h4 {
   position: relative;
   width: max-content;
   z-index: 1;
+}
+
+.modal h4 ~ p > li {
+  position: relative;
+  list-style: none;
+  margin: 0 0 8px 25px;
+}
+.modal h4 ~ p > li::before {
+  position: absolute;
+  top: 40%;
+  left: -20px;
+  content: " ";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: #239aff;
+  border-radius: 50%;
 }
 
 .modal-content h4::after,
@@ -162,7 +183,7 @@ footer a:hover {
     max-height: 95vh;
     background-color: white;
     border-radius: 10px;
-    padding: 5px;
+    padding: 35px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../img/logo.svg";
 import { FaGithub, FaRightToBracket, FaSplotch } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <p>
             <img src={logo} alt="하루만 로고" className="h-[50px]" />
           </p>
-          <div className="max-w-[600px]">
+          <div className="max-w-[550px]">
             <p className="font-semibold uppercase mb-1">Image source</p>
             <ul className="flex flex-wrap gap-x-4">
               <li>
@@ -20,17 +21,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-space-rocket-with-smoke_13677911.htm#position=16" target="_blank" rel="noreferrer">
                   rocket
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546708.htm#position=8" target="_blank" rel="noreferrer">
                   headphone
                 </a>
               </li>
               <li>
-                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9" rel="noreferrer">
+                <a href="https://www.freepik.com/free-psd/3d-rendering-ui-icon_20546699.htm#position=9" target="_blank" rel="noreferrer">
                   photos
                 </a>
               </li>
@@ -96,7 +97,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://allabout-japan.com/ko/article/7167/" target="_blank" rel="noreferrer">
-                  snak
+                  snack
                 </a>
               </li>
               <li>
@@ -105,8 +106,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%EB%A7%88%EC%9D%B4%ED%81%AC%EA%B0%80-%EC%9E%88%EB%8A%94-%EB%82%A8%EC%9E%90-%EC%98%86%EC%97%90%EC%84%9C-dj-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%A5%BC-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%82%A8%EC%9E%90-EaCidUroyVE" target="_blank" rel="noreferrer">
+                <a href="https://www.freepik.com/free-photo/headphones-near-pile-sheet-music_2070303.htm#fromView=search&page=1&position=45&uuid=5b422ee8-ec7c-4f21-a80d-7edb5813fca3" target="_blank" rel="noreferrer">
                   music
+                </a>
+              </li>
+              <li>
+                <a href="https://firebasestorage.googleapis.com/v0/b/mochaclass-intro-web-4e0c0.appspot.com/o/FCMImages%2FNnQiF60kchMxIGQ0_6178f2d8a6f0394e051b45f2_1024x1024?alt=media" target="_blank" rel="noreferrer">
+                  doll
                 </a>
               </li>
             </ul>
@@ -116,14 +122,16 @@ export default function Footer() {
         <ul className="flex items-center gap-6">
           <li>
             <a href="https://github.com/yj4-haruman/oneDay" rel="noreferrer" target="_blank">
-              <FaGithub size="30px" color="#555" />
+              <FaGithub size="35px" color="#239AFF" />
             </a>
           </li>
           <li>
-            <FaSplotch size="30px" color="#555" />
+            <FaSplotch size="35px" color="#239AFF" />
           </li>
           <li>
-            <FaRightToBracket size="30px" color="#555" />
+            <Link to="/users/login">
+              <FaRightToBracket size="35px" color="#239AFF" />
+            </Link>
           </li>
         </ul>
       </div>
