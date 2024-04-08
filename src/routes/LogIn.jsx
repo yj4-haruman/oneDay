@@ -100,8 +100,6 @@ export default function LogIn() {
                 {/* 버튼 */}
                 <Button type="submit" text="로그인" />
               </form>
-              {/* 소셜로그인 */}
-              <Socials />
             </div>
           </div>
         )}

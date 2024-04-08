@@ -75,7 +75,7 @@ select {
   max-width: 1600px;
 }
 
-.swiper img,
+.classCard img,
 .modal img {
   object-fit: cover;
 }

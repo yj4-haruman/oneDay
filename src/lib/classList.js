@@ -14,6 +14,7 @@ import sport4 from "../img/climb.jpg";
 import music2 from "../img/produce.jpg";
 import active3 from "../img/diving.jpg";
 import active4 from "../img/doll.jpg";
+import petWalnut from "../img/petWalnut.jpg";
 
 export const classList = [
   {
@@ -188,7 +189,7 @@ export const classListNew = [
     종류: "음악",
     라인: "오프라인",
     인원: "1~5",
-    이름: "노래녹음,작사,작곡,노래,랩",
+    이름: "노래 녹음, 작사, 작곡, 노래, 랩",
     가격: "78,000",
     주소: "00시 00구 00로 0건물",
     주차: "가능",
@@ -279,5 +280,21 @@ export const classListNew = [
     내용3: "드로잉클럽 스튜디오를 운영하고 있습니다.</br>개인/단체/기업 클래스 운영 중 원데이클래스 / 정규클래스 운영 중",
     sns: "https://www.instagram.com/",
     imageUrl: art2,
+  },
+  {
+    id: 17,
+    종류: "요리",
+    라인: "온라인",
+    인원: "2~4",
+    이름: "펫푸드 붕어빵&호두과자 만들기",
+    가격: "50,000",
+    주소: "-",
+    주차: "-",
+    시간: "2~3",
+    내용: "내 손으로 직접 만드는 반려동물 음식!<br/>손재주가 없어도 예쁘게 만들어갈 수 있도록 할게요! 어떤 펫푸드를 만들고 싶으신지 문의로 알려주세요!<br/>겨울철 간식인 붕어빵&호두과자를 준비했어요!<br/><br/>알레르기 등 여러 문의 사항은 문의주세요!",
+    내용2: "<li>반려동물을 키우고 계시는분</li><li>선물용 간식을 찾으시는분</li>",
+    내용3: "강아지 레스토랑, 펫 베이커리를 운영하고 있습니다.<br/ >펫 케이크, 간식 전국 배송 가능",
+    sns: "https://www.instagram.com/",
+    imageUrl: petWalnut,
   },
 ];

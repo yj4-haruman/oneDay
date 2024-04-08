@@ -1,13 +1,13 @@
 import React from "react";
-import { FaGlobe, FaUsers, FaRegStar } from "react-icons/fa";
+import { FaGlobe, FaUsers } from "react-icons/fa";
 import ClassCate from "./ClassCate";
 
 export default function ClassCard(props) {
   return (
     <div className="w-full sm:w-[345px] h-full flex flex-col gap-y-[12px] rounded-2xl mb-3 mx-auto select-none cursor-pointer">
       {/* class img */}
-      <div onClick={() => props.openModal(props.imageUrl, props.내용)} className="w-full h-[265px] rounded-2xl overflow-hidden">
-        <img className="w-full h-full bg-gray-200" src={props.img} alt="클래스 이미지" />
+      <div onClick={() => props.openModal(props.imageUrl, props.내용)} className="w-full h-[265px] rounded-2xl overflow-hidden classCard">
+        <img className="w-full h-full bg-gray-200 object-cover" src={props.img} alt="클래스 이미지" />
       </div>
       {/* class genre */}
       <div className="w-full flex justify-between px-2 items-center">
