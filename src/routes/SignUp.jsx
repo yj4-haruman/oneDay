@@ -61,7 +61,7 @@ export default function SignUp() {
             <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">회원가입</div>
             <div className="w-full text-center text-neutral-600">
               회원가입이 되어 있다면&nbsp;
-              <Link to="/users/login" className="hover:text-mainBlue hover:underline underline-offset-2">
+              <Link to="/users/login" className="text-mainBlue hover:underline underline-offset-2">
                 로그인하기
               </Link>
             </div>
