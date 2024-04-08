@@ -30,7 +30,6 @@ export default function Header() {
   const userData = useUser();
   console.log(userData);
   const userName = userData; // 유저 아이디 추출
-  // console.log(userData?.user);
   
   const handleLogout = async () => {
     await apiPostLogout();
