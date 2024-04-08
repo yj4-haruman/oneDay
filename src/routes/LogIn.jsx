@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import InputBox from "../component/InputBox";
 import Button from "../component/Button";
-import Socials from "../component/Socials";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import { apiPostLogin } from "../api";
@@ -23,7 +22,8 @@ export default function LogIn() {
   const { mutate } = useMutation(apiPostLogin, {
     onSuccess: (data) => {
       // console.log(data);
-      if (data.result === true) { // 서버에서 성공 여부를 확인
+      if (data.result === true) {
+        // 서버에서 성공 여부를 확인
         // 로그인 성공 시 세션 스토리지에 데이터 저장
         sessionStorage.setItem("userData", JSON.stringify(data));
         queryClient.invalidateQueries("getUser");
@@ -59,7 +59,7 @@ export default function LogIn() {
         {data?.isLogin === true ? (
           (window.location.href = "/")
         ) : (
-          <div className="w-full flex justify-center py-16">
+          <div className="w-full flex justify-center py-16 select-none">
             <div className="max-w-screen-sm w-full flex flex-col gap-8 px-4">
               {/* 로그인 타이틀 */}
 
@@ -67,7 +67,7 @@ export default function LogIn() {
                 <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">로그인</div>
                 <div className="w-full text-center text-neutral-600">
                   아직 회원이 아니라면&nbsp;
-                  <Link to="/users/signup" className="hover:text-mainBlue hover:underline underline-offset-2">
+                  <Link to="/users/signup" className="text-mainBlue font-semibold hover:underline underline-offset-2">
                     가입하기
                   </Link>
                 </div>
@@ -99,8 +99,6 @@ export default function LogIn() {
                 {/* 버튼 */}
                 <Button type="submit" text="로그인" />
               </form>
-              {/* 소셜로그인 */}
-              <Socials />
             </div>
           </div>
         )}

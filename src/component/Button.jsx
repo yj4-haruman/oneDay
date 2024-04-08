@@ -1,6 +1,6 @@
-export default function Button({ type, text }) {
+export default function Button({ type, text, disabled }) {
   return (
-    <button type={type} className=" bg-gray-300 font-semibold text-white h-12 rounded-md transition duration-300 hover:bg-[#239AFF] text-lg">
+    <button type={type} className={`${disabled ? "bg-gray-300" : "bg-mainBlue"} font-semibold text-white h-12 rounded-md transition duration-300 text-lg`} disabled={disabled}>
       {text}
     </button>
   );

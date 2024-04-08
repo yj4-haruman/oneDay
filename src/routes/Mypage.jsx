@@ -9,7 +9,7 @@ import useUser from "../component/useUser";
 
 export default function Mypage() {
   const userData = useUser();
-  const userName = userData?.data?.user?.username;
+  const userName = userData;
   console.log(userName);
 
   // // 세션 스토리지에서 데이터 가져오기
@@ -28,7 +28,7 @@ export default function Mypage() {
       <div className="w-full pl-[10%]">
         <div className="w-fit">
           <p className="font-bold text-[50px] mb-10">
-            <span>{userName}</span>님이 수강 신청한 클래스
+            <span>{userName?.user?.username}</span> 님이 수강 신청한 클래스
           </p>
         </div>
       </div>
