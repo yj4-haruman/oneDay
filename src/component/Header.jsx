@@ -28,8 +28,9 @@ export default function Header() {
   };
 
   const userData = useUser();
-  const userName = userData?.user?.username;
-
+  console.log(userData);
+  const userName = userData; // 유저 아이디 추출
+  
   const handleLogout = async () => {
     await apiPostLogout();
     sessionStorage.clear();
@@ -53,18 +54,14 @@ export default function Header() {
               <img src={logo} alt="하루만로고" />
             </div>
             <div>
-              {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
+              {userName ? (
                 <>
-                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
-                    {userName}님
-                  </Link>{" "}
-                  |{" "}
+                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">{userName?.user?.username}님</Link> |{" "}
                   <Link className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg" onClick={handleLogout}>
                     로그아웃
                   </Link>
                 </>
-              ) : (
-                // 없으면 로그인 및 회원가입 링크 표시
+              ) : ( 
                 <>
                   <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
                     로그인

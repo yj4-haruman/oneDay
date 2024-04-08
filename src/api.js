@@ -71,7 +71,7 @@ export async function apiPostNoticeDelete(id) {
 
 // 회원가입하기
 export async function apiPostRegister(data) {
-  console.log(data);
+  // console.log(data);
   try {
     return await fetch(`${BASE_URL}/users/register`, {
       method: "POST",
@@ -103,6 +103,7 @@ export async function apiPostLogin(data) {
 
 // 로그인 후 userData 요청
 export async function apiGetUser(data) {
+  console.log(data);
   try {
     return await fetch(`${BASE_URL}/users/login-success?token=${data?.queryKey[1].token}`, {
       method: "GET",

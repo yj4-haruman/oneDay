@@ -22,9 +22,8 @@ export default function LogIn() {
 
   const { mutate } = useMutation(apiPostLogin, {
     onSuccess: (data) => {
-      console.log(data);
-      if (data.result === true) {
-        // 서버에서 성공 여부를 확인
+      // console.log(data);
+      if (data.result === true) { // 서버에서 성공 여부를 확인
         // 로그인 성공 시 세션 스토리지에 데이터 저장
         sessionStorage.setItem("userData", JSON.stringify(data));
         queryClient.invalidateQueries("getUser");
