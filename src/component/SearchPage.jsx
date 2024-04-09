@@ -23,7 +23,7 @@ export default function SearchPage({ searchQuery, dark }) {
   };
 
   const filteredClasses = [...classList, ...classListNew].filter((item) => {
-    return (item.이름.includes(searchQuery) || item.종류.includes(searchQuery)) && (item.이름.length >= 2 || item.종류.length >= 2) && searchQuery.length >= 2;
+    return (item.name.includes(searchQuery) || item.type.includes(searchQuery)) && (item.name.length >= 2 || item.type.length >= 2) && searchQuery.length >= 2;
   });
 
   return (
@@ -35,7 +35,7 @@ export default function SearchPage({ searchQuery, dark }) {
           ) : (
             filteredClasses.map((item) => (
               <>
-                <ClassCard openModal={openModal} 내용={item} img={item.imageUrl} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} />
+                <ClassCard openModal={openModal} desc={item} img={item.imageUrl} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />
               </>
             ))
           )}

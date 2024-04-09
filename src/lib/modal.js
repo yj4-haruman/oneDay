@@ -39,14 +39,14 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
       alert("수강신청 되었습니다.");
 
       const newData = {
-        title: content.이름,
-        price: content.가격,
-        genre: content.종류,
-        state: content.라인,
-        user: content.인원,
-        text: content.내용,
-        text2: content.내용3,
-        text3: content.내용3,
+        title: content.name,
+        price: content.price,
+        genre: content.tyep,
+        state: content.line,
+        user: content.people,
+        text: content.desc,
+        text2: content.desc2,
+        text3: content.desc3,
         img: content.imageUrl,
         date: data.data,
         number: data.number,
@@ -85,32 +85,32 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
             </div>
             {/* 사이드바 */}
             <aside className={`w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#040404]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
-              <h3 className="font-semibold text-3xl mb-2">{content.이름}</h3>
-              <ClassCate txt={content.종류} />
+              <h3 className="font-semibold text-3xl mb-2">{content.name}</h3>
+              <ClassCate txt={content.type} />
               <div className="flex flex-col gap-y-[8px] pt-3 text-lg">
                 <div className="flex gap-x-2 items-center">
                   <FaLocationDot size="22px" />
-                  <p>{content.주소}</p>
+                  <p>{content.address}</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
                   <FaClock size="22px" />
-                  <p>{content.시간}시간</p>
+                  <p>{content.time}시간</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
                   <FaGlobe size="22px" />
-                  <p>{content.라인}</p>
+                  <p>{content.line}</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
                   <FaUsers size="22px" />
-                  <p>{content.인원}명</p>
+                  <p>{content.people}명</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
                   <FaCarSide size="22px" />
-                  <p>주차 {content.주차}</p>
+                  <p>주차 {content.park}</p>
                 </div>
                 <div className="flex gap-x-3 items-center">
                   <FaCoins size="22px" />
-                  <p>1인당 {content.가격}원</p>
+                  <p>1인당 {content.price}원</p>
                 </div>
               </div>
               <form onSubmit={handleSubmit(onsubmit)}>
@@ -174,11 +174,11 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
             {/* modal des */}
             <div className="flex flex-col gap-y-2">
               <h4 className="font-semibold text-[27px]">클래스 소개</h4>
-              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.내용 }} />
+              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc }} />
               <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
-              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.내용2 }} />
+              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc2 }} />
               <h4 className="font-semibold text-[27px]">선생님 소개</h4>
-              <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.내용3 }} />
+              <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.desc3 }} />
               <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
                 <a href={content.sns} target="_blank" className={`flex gap-1 items-center ${!dark && "text-gray-600"}`} rel="noreferrer">
                   <IoLogoInstagram size="24px" color={`${dark ? "white" : "gray"}`} />

@@ -1,6 +1,4 @@
 import React from "react";
-import { FaGlobe, FaUsers } from "react-icons/fa";
-import ClassCate from "./ClassCate";
 
 export default function MyCard(props) {
   return (

@@ -74,7 +74,7 @@ export default function Mypage() {
             </div>
           </div>
         </div>
-        {myCards.map((item, index) => storedData[index] && <MyCard img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} />)}
+        {myCards.map((item, index) => storedData[index] && <MyCard img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)}
       </div>
       {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </div>
