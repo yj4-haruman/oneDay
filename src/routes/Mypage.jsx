@@ -6,6 +6,7 @@ import phone from "../img/megaphone.png";
 import fire from "../img/celeb.png";
 import logo from "../img/logo.svg";
 import useUser from "../component/useUser";
+import MyCard from "../component/MyCard";
 
 export default function Mypage() {
   const userData = useUser();
@@ -67,6 +68,7 @@ export default function Mypage() {
         <ClassCard />
         <ClassCard />
         <ClassCard />
+        <MyCard img={storedData?.img}/>
       </div>
     </div>
   );
