@@ -26,6 +26,10 @@
   word-break: keep-all;
 }
 
+body {
+  transition: all 0.23s;
+}
+
 .ffNetm {
   font-family: "netmarbleB";
 }
@@ -96,7 +100,6 @@ select {
   width: 90%;
   max-width: 1200px;
   height: 750px;
-  background-color: white;
   border-radius: 10px;
   padding: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -155,6 +158,11 @@ select {
 
 .m-modal-content {
   display: none;
+}
+
+.MuiStack-root.css-10o2lyd-MuiStack-root {
+  background: #fff;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar {

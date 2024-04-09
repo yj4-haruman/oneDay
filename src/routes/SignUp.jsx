@@ -102,7 +102,7 @@ export default function SignUp() {
               register={register}
               name="phone"
               type="tel"
-              placeholder="전화번호"
+              placeholder="010-0000-0000"
               errorOption={{
                 required: "전화번호는 필수 입력사항입니다",
                 pattern: {

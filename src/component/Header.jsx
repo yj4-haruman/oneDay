@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowRotateLeft } from "react-icons/fa6";
+import { FaArrowRotateLeft, FaSun, FaMoon } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
@@ -8,7 +8,7 @@ import SearchPage from "./SearchPage";
 import { classList } from "../lib/classList";
 import angleDown from "../img/angleDown.svg";
 
-export default function Header() {
+export default function Header({ dark, setDark }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [classType, setClassType] = useState("");
   const [participants, setParticipants] = useState("");
@@ -30,7 +30,7 @@ export default function Header() {
   const userData = useUser();
   console.log(userData);
   const userName = userData; // 유저 아이디 추출
-  
+
   const handleLogout = async () => {
     await apiPostLogout();
     sessionStorage.clear();
@@ -47,30 +47,47 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full flex justify-center">
+      <header className="w-full flex justify-center select-none">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
             <div className="w-[114px]">
               <img src={logo} alt="하루만로고" />
             </div>
-            <div>
-              {userName ? (
-                <>
-                  <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">{userName?.user?.username}님</Link> |{" "}
-                  <Link className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg" onClick={handleLogout}>
-                    로그아웃
-                  </Link>
-                </>
-              ) : ( 
-                <>
-                  <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1 text-mainBlue font-semibold text-lg">
-                    로그인
-                  </Link>
-                  <Link to="/users/signup" className="px-3 py-2 rounded-xl mx-2 text-white bg-mainBlue font-semibold text-lg">
-                    회원가입
-                  </Link>
-                </>
-              )}
+            <div className="flex text-mainBlue font-semibold text-lg ">
+              <div className="px-2 pb-1 flex mr-4 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
+                {dark ? (
+                  <>
+                    <FaSun size="25px" className="mr-1" />
+                    <p>밝게</p>
+                  </>
+                ) : (
+                  <>
+                    <FaMoon size="25px" />
+                    <p>어둡게</p>
+                  </>
+                )}
+              </div>
+              <div>
+                {userName ? (
+                  <>
+                    <Link to="/users/mypage" className="px-3 py-2 rounded-xl mx-1 text-white bg-mainBlue">
+                      {userName?.user?.username}님
+                    </Link>
+                    <Link className="px-2 py-1 rounded-lg mx-1" onClick={handleLogout}>
+                      로그아웃
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/users/login" className="px-2 py-1 rounded-lg mx-1">
+                      로그인
+                    </Link>
+                    <Link to="/users/signup" className="px-3 py-2 rounded-xl mx-2 text-white bg-mainBlue">
+                      회원가입
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
           <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
@@ -185,13 +202,13 @@ export default function Header() {
         </div>
       </header>
       {/* modal */}
-      <div className="w-full h-full flex justify-center">
+      <section className="w-full h-full flex justify-center">
         {isSearched && (
           <div className="w-full h-full flex justify-center">
-            <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+            <SearchPage dark={dark} searchQuery={searchQuery} classList={filteredClasses} />
           </div>
         )}
-      </div>
+      </section>
     </>
   );
 }

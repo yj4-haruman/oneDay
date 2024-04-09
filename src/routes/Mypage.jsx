@@ -35,7 +35,7 @@ export default function Mypage() {
   const myCards = [...classList, ...classListNew];
 
   // // 세션 스토리지에서 데이터 가져오기
-  const storedData = JSON.parse(sessionStorage.getItem('DataArray'));
+  const storedData = JSON.parse(sessionStorage.getItem("DataArray"));
   return (
     <div className="w-full flex flex-col items-center p-4 gap-y-7">
       {/* home */}
@@ -63,25 +63,18 @@ export default function Mypage() {
             <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" />
             <div className="w-full h-full bg-[#f5f5f5] rounded-[30px]">
               <div className="w-[96%] m-auto my-[6px] bg-white rounded-[30px] py-10 text-center text-[40px] leading-[52px]">
-                <span className="font-medium text-[#b858ed]">지금 당장</span>
+                <span className="font-medium text-[#b858ed]">배너 내용</span>
                 <br />
-                <span className="font-bold text-[#a23fff]">알림톡&nbsp;&nbsp;</span>
-                <br /> <span className="font-medium text-[#b858ed]">신청하고</span>
+                <span className="font-bold text-[#a23fff]">ㅂㄴㅂ&nbsp;&nbsp;</span>
+                <br /> <span className="font-medium text-[#b858ed]">내용내용</span>
                 <br />
-                <span className="font-bold text-[#a23fff]">수강 신청</span>
-                <br /> <span className="font-bold text-[#a23fff]">알림 받자!</span>
+                <span className="font-bold text-[#a23fff]">배너 배너</span>
+                <br /> <span className="font-bold text-[#a23fff]">내용 배너!</span>
               </div>
             </div>
           </div>
         </div>
-        {storedData.map((item, index) => (
-            <MyCard 
-              img={storedData[index].img}
-              date={storedData[index].date}
-              number={storedData[index].number}
-              openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격}
-            />
-        ))}
+        {myCards.map((item, index) => storedData[index] && <MyCard img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} />)}
       </div>
       {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </div>
