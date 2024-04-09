@@ -10,20 +10,39 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller, useForm } from "react-hook-form";
+import useUser from "../component/useUser";
 
 export default function Modal({ modalRef, imageUrl, onClose, content }) {
   const [value, setValue] = useState(dayjs());
   const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
+  const userData = useUser();
+  const userName = userData;
+  
+  const handleReservation = () => {
+    if (!userName) {
+      alert("회원가입 해주세요.");
+    } 
+  };
 
   // 수강신청 제출시 실행 함수
   const onsubmit = (data) => {
     if (!data.data || !data.number) {
       alert("날짜와 인원수를 모두 입력하세요.");
       return;
+    } else {
+      console.log(data);
+      alert("수강신청 되었습니다.");
+  
+      const existingData = JSON.parse(sessionStorage.getItem('DataArray') || '[]');
+      const newData = { title: content.이름, price: content.가격, genre: content.종류, state: content.라인, user: content.인원, img: content.imageUrl, date: data.data, number: data.number };
+      const updatedData = [...existingData, newData];
+  
+      sessionStorage.setItem('DataArray', JSON.stringify(updatedData));
     }
-    console.log(data);
   };
+  
+  const isUserLoggedIn = !!userName; // 사용자가 로그인했는지 확인
 
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
@@ -31,20 +50,14 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
         <span className="close" onClick={onClose}>
           &times;
         </span>
-        {/* pc 태블릿 모드 */}
         <div className="modal-text flex flex-col p-12">
           <div className="flex gap-x-2">
-            {/* 이미지 */}
             <div className="w-full h-[600px] bg-gray-300 rounded-2xl overflow-hidden">
               <img className="w-full h-full" src={content.imageUrl} alt="Class" />
             </div>
-            {/* 사이드바 */}
             <div className="w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2" style={{ boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
-              {/* name */}
               <h3 className="font-semibold text-3xl mb-2">{content.이름}</h3>
-              {/* genre */}
               <ClassCate txt={content.종류} />
-              {/* info */}
               <div className="flex flex-col gap-y-[8px] pt-3 text-lg">
                 <div className="flex gap-x-2 items-center">
                   <FaLocationDot size="22px" />
@@ -71,7 +84,6 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   <p>1인당 {content.가격}원</p>
                 </div>
               </div>
-              {/* 수강 신청 */}
               <form onSubmit={handleSubmit(onsubmit)}>
                 <h3 className="mt-8 font-medium text-xl mb-2">날짜 선택</h3>
                 <Controller
@@ -98,7 +110,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   <Controller
                     control={control}
                     defaultValue={number}
-                    name="number" // 이름을 "number"로 변경
+                    name="number"
                     render={({ field }) => (
                       <input
                         {...field}
@@ -107,7 +119,6 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                         onChange={(e) => {
                           const inputNum = parseInt(e.target.value);
                           if (!isNaN(inputNum) && inputNum >= 1) {
-                            // 입력값이 숫자이고 1 이상인 경우에만 상태 업데이트
                             field.onChange(inputNum);
                           }
                         }}
@@ -116,16 +127,22 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   />
                   <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
                 </div>
-                <button type="submit" className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
-                  <FaRegStar size="19px" />
-                  수강 신청
-                </button>
+                {isUserLoggedIn ? (
+                  <button type="submit" className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
+                    <FaRegStar size="19px" />
+                    수강 신청
+                  </button>
+                ) : (
+                  <button type="button" className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]" onClick={handleReservation}>
+                    <FaRegStar size="19px" />
+                    수강 신청
+                  </button>
+                )}
               </form>
             </div>
           </div>
-          {/* modal des */}
           <div className="w-full flex flex-col gap-y-6 py-10 px-8">
-            {/* 소제목 */}
+            {/* modal des */}
             <div className="flex flex-col gap-y-2">
               <h4 className="font-semibold text-[27px]">클래스 소개</h4>
               <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.내용 }} />
@@ -145,113 +162,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
       </motion.div>
       {/* mobile mode */}
       <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className="m-modal-content overflow-y-scroll">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
-        <div className="m-modal-text w-full items-center flex flex-col gap-y-2">
-          {/* m-img */}
-          <div className="w-full h-[400px] bg-gray-500 rounded-2xl overflow-hidden">
-            <img className="w-full h-full" src={content.imageUrl} alt="Class" />
-          </div>
-          {/* m-info */}
-          <div className="w-[93%] flex flex-col bg-white rounded-2xl p-1 gap-y-2">
-            {/* name */}
-            <h3 className="font-bold text-3xl mb-2">{content.이름}</h3>
-            {/* genre */}
-            <ClassCate txt={content.종류} />
-            {/* info */}
-            <div className="flex flex-col gap-y-[8px] pt-1 mt-3">
-              <div className="flex gap-x-3 items-center">
-                <FaLocationDot size="24px" />
-                <p className="text-lg">{content.주소}</p>
-              </div>
-              <div className="flex gap-x-3 items-center">
-                <FaCoins size="24px" />
-                <p className="text-lg">{content.가격}원</p>
-              </div>
-              <div className="flex gap-x-3 items-center">
-                <FaClock size="24px" />
-                <p className="text-lg">{content.시간}시간</p>
-              </div>
-              <div className="flex gap-x-3 items-center">
-                <FaGlobe size="24px" />
-                <p className="text-lg">{content.라인}</p>
-              </div>
-              <div className="flex gap-x-3 items-center">
-                <FaUsers size="24px" />
-                <p className="text-lg">{content.인원}명</p>
-              </div>
-              <div className="flex gap-x-3 items-center">
-                <FaCarSide size="24px" />
-                <p className="text-lg">주차 {content.주차}</p>
-              </div>
-            </div>
-            {/* 수강 신청 */}
-            <form onSubmit={handleSubmit(onsubmit)}>
-              <h3 className="mt-8 font-medium text-xl mb-2">수업 날짜</h3>
-              <Controller
-                control={control}
-                name="data"
-                render={({ field }) => (
-                  <LocalizationProvider dateAdapter={AdapterDayjs} dateFormats={{ monthShort: `M` }}>
-                    <DemoContainer components={["DatePicker", "DatePicker"]}>
-                      <DatePicker
-                        format="YYYY-MM-DD"
-                        defaultValue={dayjs()}
-                        onChange={(newValue) => {
-                          setValue(newValue.format("YYYY-MM-DD"));
-                          field.onChange(newValue.format("YYYY-MM-DD"));
-                        }}
-                        disablePast={true}
-                      />
-                    </DemoContainer>
-                  </LocalizationProvider>
-                )}
-              />
-              <h3 className="mt-8 font-medium text-xl mb-2">참가 인원</h3>
-              <div className="flex items-center relative">
-                <Controller
-                  control={control}
-                  defaultValue={number}
-                  name="number" // 이름을 "number"로 변경
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      type="text"
-                      className="ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full h-12 outline-none"
-                      onChange={(e) => {
-                        const inputNum = parseInt(e.target.value);
-                        if (!isNaN(inputNum) && inputNum >= 1) {
-                          field.onChange(inputNum);
-                        }
-                      }}
-                    />
-                  )}
-                />
-                <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
-              </div>
-              <button type="submit" className="w-full h-[60px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 text-xl mt-6 font-bold text-[20px]">
-                <FaRegStar />
-                수강 신청
-              </button>
-            </form>
-          </div>
-          {/* m-des */}
-          <div className="w-[93%] flex flex-col gap-y-2 py-8 mt-4">
-            <h4 className="font-semibold text-[27px]">클래스 소개</h4>
-            <p className="w-full text-2xl mb-10" dangerouslySetInnerHTML={{ __html: content.내용 }}></p>
-            <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
-            <p className="w-full text-2xl mb-10" dangerouslySetInnerHTML={{ __html: content.내용2 }}></p>
-            <h4 className="font-semibold text-[27px]">선생님 소개</h4>
-            <p className="w-full text-2xl" dangerouslySetInnerHTML={{ __html: content.내용3 }}></p>
-            <div className="border-2 w-fit px-2 py-1 rounded-md border-gray-400 mb-8">
-              <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
-                <IoLogoInstagram size="24px" color="gray" />
-                SNS
-              </a>
-            </div>
-          </div>
-        </div>
+        {/* 생략 */}
       </motion.div>
     </div>
   );

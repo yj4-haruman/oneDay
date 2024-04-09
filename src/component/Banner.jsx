@@ -4,7 +4,7 @@ import useUser from "./useUser";
 
 export default function Banner() {
   const userData = useUser();
-  const userName = userData?.data?.user?.username;
+  const userName = userData;
   return (
     <section>
       {userName ? ( // 유저 아이디가 있으면 로그아웃 링크 표시
