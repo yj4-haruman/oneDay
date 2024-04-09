@@ -6,7 +6,7 @@ const Detail = ({ summ, txt, border }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleQna = () => setIsOpen(!isOpen);
   return (
-    <section onClick={toggleQna} className="">
+    <div onClick={toggleQna} className="">
       <button className={`${border} px-5 py-[16px] border-[#ccc] w-full text-left flex justify-between items-center text-[20px] font-semibold outline-none`}>
         <p>{summ}</p>
         <IoIosArrowDown />
@@ -18,13 +18,13 @@ const Detail = ({ summ, txt, border }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </div>
   );
 };
 
 export default function Qna() {
   return (
-    <div className="w-full flex justify-center py-5 select-none">
+    <section className="w-full flex justify-center py-5 select-none">
       <div className="w-[95%] max-w-[1100px] h-full flex flex-col gap-y-2">
         <h2 className="font-black text-[34px] mb-[20px]">자주 묻는 질문</h2>
         <div className="w-full max-w-[1100px] mx-auto flex flex-col border border-[#ccc] rounded-2xl overflow-hidden">
@@ -35,6 +35,6 @@ export default function Qna() {
           <Detail summ="결제는 어떻게 하나요?" txt="결제 기능은 구현 예정입니다." />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

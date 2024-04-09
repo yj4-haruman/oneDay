@@ -16,6 +16,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
   const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
 
+  // 수강신청 제출시 실행 함수
   const onsubmit = (data) => {
     if (!data.data || !data.number) {
       alert("날짜와 인원수를 모두 입력하세요.");
