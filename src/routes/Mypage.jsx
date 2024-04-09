@@ -61,6 +61,8 @@ export default function Mypage() {
             <img src={phone} alt="메가폰" className="absolute -top-10 -left-10 w-[140px]" />
             <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
             {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
+            <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
+            {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
             <div className="w-full h-full bg-[#f5f5f5] rounded-[30px]">
               <div className="w-[96%] m-auto my-[6px] bg-white rounded-[30px] py-10 text-center text-[40px] leading-[52px]">
                 <span className="font-medium text-[#b858ed]">원데이클래스의</span>
