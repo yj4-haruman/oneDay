@@ -13,7 +13,7 @@ export default function Mypage() {
   console.log(userName);
 
   // // 세션 스토리지에서 데이터 가져오기
-  // const storedData = JSON.parse(sessionStorage.getItem('reservationData'));
+  const storedData = JSON.parse(sessionStorage.getItem('DataType'));
   return (
     <div className="w-full flex flex-col items-center p-4 gap-y-7">
       {/* home */}
@@ -52,7 +52,15 @@ export default function Mypage() {
             </div>
           </div>
         </div>
-        <ClassCard />
+        <ClassCard
+            img={storedData.img}
+            종류={storedData.genre}
+            내용={storedData.date}
+            라인={storedData.state}
+            인원={storedData.number}
+            이름={storedData.title}
+            가격={storedData.price}
+          />
         <ClassCard />
         <ClassCard />
         <ClassCard />
