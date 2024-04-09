@@ -59,22 +59,25 @@ export default function Mypage() {
         <div className="w-full flex items-center justify-center">
           <div className="relative w-full flex flex-col gap-y-2 p-6 sm:w-[345px] h-[400px] bg-[#ca93f8] rounded-lg">
             <img src={phone} alt="메가폰" className="absolute -top-10 -left-10 w-[140px]" />
-            <img src={clock} alt="알람시계" className="absolute w-[65px] top-[122px] right-[61px]" />
-            <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" />
+            <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
+            {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
             <div className="w-full h-full bg-[#f5f5f5] rounded-[30px]">
               <div className="w-[96%] m-auto my-[6px] bg-white rounded-[30px] py-10 text-center text-[40px] leading-[52px]">
-                <span className="font-medium text-[#b858ed]">배너 내용</span>
+                <span className="font-medium text-[#b858ed]">원데이클래스의</span>
                 <br />
-                <span className="font-bold text-[#a23fff]">ㅂㄴㅂ&nbsp;&nbsp;</span>
-                <br /> <span className="font-medium text-[#b858ed]">내용내용</span>
+                <span className="font-bold text-[#a23fff]">수업 일</span>
+                <span className="font-medium text-[#b858ed]">이</span>
+                <br /> <span className="font-medium text-[#b858ed]">다가오면</span>
                 <br />
-                <span className="font-bold text-[#a23fff]">배너 배너</span>
-                <br /> <span className="font-bold text-[#a23fff]">내용 배너!</span>
+                <span className="font-bold text-[#a23fff]">알림톡&nbsp;&nbsp;</span>
+                <br /> <span className="font-bold text-[#a23fff]">보내드려요!</span>
               </div>
             </div>
           </div>
         </div>
-        {myCards.map((item, index) => storedData[index] && <MyCard img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} 내용={item} 종류={item.종류} 라인={item.라인} 인원={item.인원} 이름={item.이름} 가격={item.가격} />)}
+        {storedData ? storedData.map((item, index) => (
+  <MyCard key={index} img={item.img} date={item.date} number={item.number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />
+)) : <div className="flex justify-center items-center text-[20px]">신청하신 클래스가 없습니다.</div>}
       </div>
       {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </div>
