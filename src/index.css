@@ -26,6 +26,10 @@
   word-break: keep-all;
 }
 
+body {
+  transition: all 0.23s;
+}
+
 .ffNetm {
   font-family: "netmarbleB";
 }

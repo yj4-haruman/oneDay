@@ -70,10 +70,9 @@ export default function Header({ dark, setDark }) {
               <div>
                 {userName ? (
                   <>
-                    <Link to="/users/mypage" className="px-2 py-1 rounded-lg mx-1">
+                    <Link to="/users/mypage" className="px-3 py-2 rounded-xl mx-1 text-white bg-mainBlue">
                       {userName?.user?.username}님
-                    </Link>{" "}
-                    |{" "}
+                    </Link>
                     <Link className="px-2 py-1 rounded-lg mx-1" onClick={handleLogout}>
                       로그아웃
                     </Link>

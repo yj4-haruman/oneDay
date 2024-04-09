@@ -29,9 +29,9 @@ export default function Qna({ dark }) {
         <h2 className="font-black text-[34px] mb-[20px]">자주 묻는 질문</h2>
         <div className="w-full max-w-[1100px] mx-auto flex flex-col border border-[#ccc] rounded-2xl overflow-hidden">
           <Detail summ="원데이클래스가 뭔가요?" txt="'원데이클래스'는 말 그대로 하루 몇시간 동안 가볍게 들을 수 있는 수업입니다. 바쁜 일상에서도 부담 없이 색다른 체험을 할 수 있습니다." border="border-b" dark={dark} />
-          <Detail summ="로그인하면 어떤 혜택을 받을 수 있나요?" txt="관심가는 수업을 구독할 수 있게됩니다. 구독 후 알림톡을 신청하시면 수업일이 다가올 때마다 카카오톡으로 알림톡을 보내드립니다." border="border-b" dark={dark} />
+          <Detail summ="로그인하면 어떤 혜택을 받을 수 있나요?" txt="원하는 원데이클래스를 수강 신청하고, 수업일이 다가오면 알림톡을 받을 수 있습니다." border="border-b" dark={dark} />
           <Detail summ="온라인 클래스는 어떻게 진행되나요?" txt="Zoom, Skype 등 화상회의 프로그램을 사용합니다." border="border-b" dark={dark} />
-          <Detail summ="혼자서도 참가할 수 있나요?" txt="네. 모든 수업은 신청 인원에 상관없이 참가할 수 있습니다." border="border-b" dark={dark} />
+          <Detail summ="혼자서도 참가할 수 있나요?" txt="네. 모든 수업은 신청 인원에 상관없이 참가할 수 있습니다. 단 수업 참가 인원보다 많은 인원은 신청할 수 없습니다." border="border-b" dark={dark} />
           <Detail summ="결제는 어떻게 하나요?" txt="결제 기능은 구현 예정입니다." dark={dark} />
         </div>
       </div>
