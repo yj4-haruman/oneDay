@@ -16,6 +16,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
   const [value, setValue] = useState(dayjs());
   const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const userData = useUser();
   const userName = userData;
   
@@ -25,22 +26,53 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
     } 
   };
 
-  const onsubmit = (data) => {
+  const onsubmit = async (data) => {
     if (!data.data || !data.number) {
       alert("날짜와 인원수를 모두 입력하세요.");
       return;
     } else {
+      if (isSubmitting) return; // 이미 수강 신청 중이면 함수 종료
+  
+      setIsSubmitting(true); // 수강 신청 중으로 상태 변경
+  
       console.log(data);
       alert("수강신청 되었습니다.");
   
-      const existingData = JSON.parse(sessionStorage.getItem('DataArray') || '[]');
-      const newData = { title: content.이름, price: content.가격, genre: content.종류, state: content.라인, user: content.인원, img: content.imageUrl, date: data.data, number: data.number };
-      const updatedData = [...existingData, newData];
+      const newData = {
+        title: content.이름,
+        price: content.가격,
+        genre: content.종류,
+        state: content.라인,
+        user: content.인원,
+        text:content.내용,
+        text2:content.내용3,
+        text3:content.내용3,
+        img: content.imageUrl,
+        date: data.data,
+        number: data.number
+      };
   
+      // 세션 스토리지에서 기존 데이터 불러오기
+      const existingData = JSON.parse(sessionStorage.getItem('DataArray') || '[]');
+  
+      // 중복 체크
+      const isDuplicate = existingData.some(item => (
+        item.title === newData.title &&
+        item.date === newData.date
+      ));
+  
+      if (isDuplicate) {
+        alert("이미 수강 신청한 클래스입니다.");
+        setIsSubmitting(false); // 수강 신청 완료 후 상태 변경
+        return;
+      }
+  
+      // 중복되지 않으면 새로운 데이터 추가
+      const updatedData = [...existingData, newData];
       sessionStorage.setItem('DataArray', JSON.stringify(updatedData));
+      setIsSubmitting(false); // 수강 신청 완료 후 상태 변경
     }
   };
-  
   const isUserLoggedIn = !!userName; // 사용자가 로그인했는지 확인
 
   return (
@@ -127,10 +159,10 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
                 </div>
                 {isUserLoggedIn ? (
-                  <button type="submit" className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
-                    <FaRegStar size="19px" />
-                    수강 신청
-                  </button>
+                  <button type="submit" disabled={isSubmitting} className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
+                  <FaRegStar size="19px" />
+                  수강 신청
+                </button>
                 ) : (
                   <button type="button" className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]" onClick={handleReservation}>
                     <FaRegStar size="19px" />

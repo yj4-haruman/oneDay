@@ -11,7 +11,7 @@ export default function MyCard(props) {
       {/* 예약날짜 */}
       <div className="pl-2 font-semibold">예약날짜:{props?.date} </div>
       {/* 예약인원 */}
-      <div className="pl-2 font-semibold">예약인원:{props?.number} </div>
+      <div className="pl-2 font-semibold">예약인원:{props?.number}명 </div>
     </div>
   );
 }
