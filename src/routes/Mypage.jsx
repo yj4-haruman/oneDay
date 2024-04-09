@@ -53,13 +53,13 @@ export default function Mypage() {
           </div>
         </div>
         <ClassCard
-            img={storedData.img}
-            종류={storedData.genre}
-            내용={storedData.date}
-            라인={storedData.state}
-            인원={storedData.number}
-            이름={storedData.title}
-            가격={storedData.price}
+            img={storedData?.img}
+            종류={storedData?.genre}
+            내용={storedData?.date}
+            라인={storedData?.state}
+            인원={storedData?.user}
+            이름={storedData?.title}
+            가격={storedData?.price}
           />
         <ClassCard />
         <ClassCard />

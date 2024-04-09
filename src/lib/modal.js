@@ -33,7 +33,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
       console.log(data);
       alert("수강신청 되었습니다.");
     }
-    sessionStorage.setItem('DataType', JSON.stringify({title:content.이름,price:content.가격, genre:content.종류, state:content.라인, img:content.imageUrl, date: data.data, number: data.number }));
+    sessionStorage.setItem('DataType', JSON.stringify({title:content.이름,price:content.가격, genre:content.종류, state:content.라인, user:content.인원, img:content.imageUrl, date: data.data, number: data.number }));
   };
 
 
