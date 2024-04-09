@@ -33,13 +33,8 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
     } else {
       console.log(data);
       alert("수강신청 되었습니다.");
-
-      const existingData = JSON.parse(sessionStorage.getItem("DataArray") || "[]");
-      const newData = { title: content.이름, price: content.가격, genre: content.종류, state: content.라인, user: content.인원, img: content.imageUrl, date: data.data, number: data.number };
-      const updatedData = [...existingData, newData];
-
-      sessionStorage.setItem("DataArray", JSON.stringify(updatedData));
     }
+    sessionStorage.setItem("DataType", JSON.stringify({ title: content.이름, img: content.imageUrl, date: data.data, number: data.number }));
   };
 
   const isUserLoggedIn = !!userName; // 사용자가 로그인했는지 확인
