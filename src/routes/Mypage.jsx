@@ -32,6 +32,8 @@ export default function Mypage() {
     e.stopPropagation();
   };
 
+  const myCards = [...classList, ...classListNew];
+
   // // 세션 스토리지에서 데이터 가져오기
   const storedData = JSON.parse(sessionStorage.getItem('DataArray'));
   return (
@@ -73,8 +75,7 @@ export default function Mypage() {
           </div>
         </div>
         {storedData.map((item, index) => (
-            <MyCard
-            key = {index} 
+            <MyCard 
             img={storedData[index]?.img}
             date={storedData[index]?.date}
             number={storedData[index]?.number}
