@@ -58,7 +58,7 @@ export default function Mypage() {
       <div className="w-full max-w-[85%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5 gap-y-12">
         <div className="w-full flex items-center justify-center">
           <div className="relative w-full flex flex-col gap-y-2 p-6 sm:w-[345px] h-[400px] bg-[#ca93f8] rounded-lg">
-            <img src={phone} alt="메가폰" className="absolute -top-10 -left-10 w-[140px]" />
+            <img src={phone} alt="메가폰" className="absolute -top-10 -left-10 w-[130px] rotate-6" />
             <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
             {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
             <div className="w-full h-full bg-[#f5f5f5] rounded-[30px]">
@@ -75,7 +75,7 @@ export default function Mypage() {
             </div>
           </div>
         </div>
-        {storedData.map((item, index) => storedData[index] && <MyCard key={index} img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)}
+        {myCards.map((item, index) => storedData[index] && <MyCard key={index} img={storedData[index].img} date={storedData[index].date} number={storedData[index].number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)}
       </div>
       {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </div>

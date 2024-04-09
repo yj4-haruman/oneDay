@@ -54,16 +54,16 @@ export default function Header({ dark, setDark }) {
               <img src={logo} alt="하루만로고" />
             </div>
             <div className="flex text-mainBlue font-semibold text-lg ">
-              <div className="px-2 pb-1 flex mr-4 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
+              <div className="px-2 pb-1 flex ml-4 md:ml-0 md:mr-4 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
                 {dark ? (
                   <>
                     <FaSun size="25px" className="mr-1" />
-                    <p>밝게</p>
+                    <p className="hidden md:inline-block">밝게</p>
                   </>
                 ) : (
                   <>
                     <FaMoon size="25px" />
-                    <p>어둡게</p>
+                    <p className="hidden md:inline-block">어둡게</p>
                   </>
                 )}
               </div>
@@ -71,7 +71,7 @@ export default function Header({ dark, setDark }) {
                 {userName ? (
                   <>
                     <Link to="/users/mypage" className="px-3 py-2 rounded-xl mx-1 text-white bg-mainBlue">
-                      {userName?.user?.username}님
+                      {userName?.user?.username}&nbsp;님
                     </Link>
                     <Link className="px-2 py-1 rounded-lg mx-1" onClick={handleLogout}>
                       로그아웃
