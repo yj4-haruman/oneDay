@@ -54,10 +54,10 @@ export default function Header({ dark, setDark }) {
               <img src={logo} alt="하루만로고" />
             </div>
             <div className="flex text-mainBlue font-semibold text-lg ">
-              <div className="px-2 pb-1 flex mr-2 gap-1 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
+              <div className="px-2 pb-1 flex mr-4 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
                 {dark ? (
                   <>
-                    <FaSun size="25px" />
+                    <FaSun size="25px" className="mr-1" />
                     <p>밝게</p>
                   </>
                 ) : (
@@ -206,7 +206,7 @@ export default function Header({ dark, setDark }) {
       <section className="w-full h-full flex justify-center">
         {isSearched && (
           <div className="w-full h-full flex justify-center">
-            <SearchPage searchQuery={searchQuery} classList={filteredClasses} />
+            <SearchPage dark={dark} searchQuery={searchQuery} classList={filteredClasses} />
           </div>
         )}
       </section>

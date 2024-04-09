@@ -6,7 +6,7 @@ import "swiper/css";
 import { classListNew } from "../lib/classList.js";
 import { FaSeedling } from "react-icons/fa";
 
-export default function Popular() {
+export default function Popular({ dark }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [modalCont, setModalCont] = useState();
@@ -63,7 +63,7 @@ export default function Popular() {
           </Swiper>
         </div>
       </section>
-      {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
+      {showModal && <Modal dark={dark} modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );
 }

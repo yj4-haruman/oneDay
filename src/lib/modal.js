@@ -12,17 +12,17 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller, useForm } from "react-hook-form";
 import useUser from "../component/useUser";
 
-export default function Modal({ modalRef, imageUrl, onClose, content }) {
+export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
   const [value, setValue] = useState(dayjs());
   const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
   const userData = useUser();
   const userName = userData;
-  
+
   const handleReservation = () => {
     if (!userName) {
       alert("회원가입 해주세요.");
-    } 
+    }
   };
 
   // 수강신청 제출시 실행 함수
@@ -33,20 +33,20 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
     } else {
       console.log(data);
       alert("수강신청 되었습니다.");
-  
-      const existingData = JSON.parse(sessionStorage.getItem('DataArray') || '[]');
+
+      const existingData = JSON.parse(sessionStorage.getItem("DataArray") || "[]");
       const newData = { title: content.이름, price: content.가격, genre: content.종류, state: content.라인, user: content.인원, img: content.imageUrl, date: data.data, number: data.number };
       const updatedData = [...existingData, newData];
-  
-      sessionStorage.setItem('DataArray', JSON.stringify(updatedData));
+
+      sessionStorage.setItem("DataArray", JSON.stringify(updatedData));
     }
   };
-  
+
   const isUserLoggedIn = !!userName; // 사용자가 로그인했는지 확인
 
   return (
     <div className="modal z-10" ref={modalRef} onClick={onClose}>
-      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className="modal-content overflow-y-scroll">
+      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className={`modal-content overflow-y-scroll ${dark ? "bg-[#151515]  text-white" : "bg-white "}`}>
         <span className="close" onClick={onClose}>
           &times;
         </span>
@@ -55,7 +55,8 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
             <div className="w-full h-[600px] bg-gray-300 rounded-2xl overflow-hidden">
               <img className="w-full h-full" src={content.imageUrl} alt="Class" />
             </div>
-            <div className="w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2" style={{ boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
+            {/* 사이드바 */}
+            <aside className={`w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#040404]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
               <h3 className="font-semibold text-3xl mb-2">{content.이름}</h3>
               <ClassCate txt={content.종류} />
               <div className="flex flex-col gap-y-[8px] pt-3 text-lg">
@@ -115,7 +116,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                       <input
                         {...field}
                         type="text"
-                        className="ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-[230px] h-12 outline-none"
+                        className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
                         onChange={(e) => {
                           const inputNum = parseInt(e.target.value);
                           if (!isNaN(inputNum) && inputNum >= 1) {
@@ -139,7 +140,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
                   </button>
                 )}
               </form>
-            </div>
+            </aside>
           </div>
           <div className="w-full flex flex-col gap-y-6 py-10 px-8">
             {/* modal des */}
@@ -151,8 +152,8 @@ export default function Modal({ modalRef, imageUrl, onClose, content }) {
               <h4 className="font-semibold text-[27px]">선생님 소개</h4>
               <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.내용3 }} />
               <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
-                <a href={content.sns} target="_blank" className="flex gap-1 items-center text-gray-600" rel="noreferrer">
-                  <IoLogoInstagram size="24px" color="gray" />
+                <a href={content.sns} target="_blank" className={`flex gap-1 items-center ${!dark && "text-gray-600"}`} rel="noreferrer">
+                  <IoLogoInstagram size="24px" color={`${dark ? "white" : "gray"}`} />
                   SNS
                 </a>
               </div>

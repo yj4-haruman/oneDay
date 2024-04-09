@@ -6,7 +6,7 @@ import "swiper/css";
 import { classList } from "../lib/classList.js";
 import { FaFire } from "react-icons/fa6";
 
-export default function Popular() {
+export default function Popular({ dark }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [modalCont, setModalCont] = useState();
@@ -66,7 +66,7 @@ export default function Popular() {
           </Swiper>
         </div>
       </section>
-      {showModal && <Modal modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
+      {showModal && <Modal dark={dark} modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );
 }
