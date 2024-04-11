@@ -14,7 +14,6 @@ export default function MyCard(props) {
         {/* 예약인원 */}
         <div>예약인원: {props?.number}명</div>
       </div>
-      <div className="px-2 text-xl font-semibold mb-1">{props.name}</div>
     </div>
   );
 }

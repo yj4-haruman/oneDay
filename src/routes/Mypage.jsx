@@ -56,7 +56,7 @@ export default function Mypage() {
       </div>
       <div className="w-full max-w-[85%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5 gap-y-12">
         {storedData ? (
-          storedData.map((item, index) => <MyCard key={index} img={item.img} date={item.date} number={item.number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)
+          storedData.map((item, index) => <MyCard key={index} img={item.imageUrl} date={item.date} number={item.number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)
         ) : (
           <div className="flex justify-center items-center text-2xl leading-8 text-center ">
             <Link to="/" className="py-4">

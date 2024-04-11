@@ -27,7 +27,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
   };
 
   const onsubmit = async (data) => {
-    if (!data.data || !data.number) {
+    if (!data.date || !data.number) {
       alert("날짜와 인원수를 모두 입력하세요.");
       return;
     } else {
@@ -39,16 +39,16 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
       alert("수강신청 되었습니다.");
 
       const newData = {
-        title: content.name,
+        name: content.name,
         price: content.price,
-        genre: content.tyep,
-        state: content.line,
-        user: content.people,
-        text: content.desc,
-        text2: content.desc2,
-        text3: content.desc3,
-        img: content.imageUrl,
-        date: data.data,
+        type: content.type,
+        line: content.line,
+        people: content.people,
+        desc: content.desc,
+        desc2: content.desc2,
+        desc3: content.desc3,
+        imageUrl: content.imageUrl,
+        date: data.date,
         number: data.number,
       };
 
@@ -56,7 +56,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
       const existingData = JSON.parse(sessionStorage.getItem("DataArray") || "[]");
 
       // 중복 체크
-      const isDuplicate = existingData.some((item) => item.title === newData.title && item.date === newData.date);
+      const isDuplicate = existingData.some((item) => item.name === newData.name && item.date === newData.date);
 
       if (isDuplicate) {
         alert("이미 수강 신청한 클래스입니다.");
@@ -117,7 +117,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
                 <h3 className="mt-8 font-medium text-xl mb-2">날짜 선택</h3>
                 <Controller
                   control={control}
-                  name="data"
+                  name="date"
                   render={({ field }) => (
                     <LocalizationProvider dateAdapter={AdapterDayjs} dateFormats={{ monthShort: `M` }}>
                       <DemoContainer components={["DatePicker", "DatePicker"]}>
