@@ -7,6 +7,7 @@ import logo from "../img/logo.svg";
 import SearchPage from "./SearchPage.jsx";
 import { classList } from "../lib/classList";
 import angleDown from "../img/angleDown.svg";
+import { motion } from "framer-motion";
 
 export default function Header({ dark, setDark }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,6 +44,14 @@ export default function Header({ dark, setDark }) {
     });
     setFilteredClasses(filtered);
     setIsSearched(true);
+  };
+  const titVariants = {
+    start: { y: "100px" },
+    end: { y: 0, transition: { type: "spring", damping: 12, stiffness: 100 } },
+  };
+  const titVariants2 = {
+    start: { opacity: 0 },
+    end: { opacity: 1 },
   };
 
   return (
@@ -93,18 +102,34 @@ export default function Header({ dark, setDark }) {
           <div className="w-full h-[75vh] flex justify-center items-center bg-center bg-cover mainhead">
             <div className="w-full max-w-[1000px] flex items-center justify-between">
               {/* 헤더 제목 */}
-              <div className="px-4 select-none">
+              <motion.div className="px-4 select-none" initial="start" animate="end" transition={{ delayChildren: 0.2, staggerChildren: 0.1 }}>
                 <h2 className="font-semibold mb-2 text-[#333] ffNetm">하루만클래스와 함께하는</h2>
                 <h1 className="font-bold flex flex-col gap-y-3 text-[#333] ffNetm">
                   <div className="ffNetm">대구만의</div>
-                  <div className="ffNetm">즐거운 하루하루</div>
+                  <div className="ffNetm flex overflow-hidden">
+                    즐거운&nbsp;
+                    <span className="flex">
+                      <motion.div variants={titVariants} className="ffNetm">
+                        하
+                      </motion.div>
+                      <motion.div variants={titVariants} className="ffNetm">
+                        루
+                      </motion.div>
+                      <motion.div variants={titVariants} className="ffNetm">
+                        하
+                      </motion.div>
+                      <motion.div variants={titVariants} className="ffNetm">
+                        루
+                      </motion.div>
+                    </span>
+                  </div>
                 </h1>
-                <h3 className="text-xl ml-3 mt-4">
+                <motion.h3 className="text-xl ml-3 mt-4" variants={titVariants2} transition={{ duration: 0.5 }}>
                   &lt;하루만클래스&gt;는 오직 대구에서만 즐길 수 있는
                   <br />
                   특별한 원데이클래스를 제공해드립니다.
-                </h3>
-              </div>
+                </motion.h3>
+              </motion.div>
             </div>
           </div>
           <div className="absolute w-full flex justify-center top-[65vh] px-2">
