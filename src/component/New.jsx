@@ -29,7 +29,7 @@ export default function Popular({ dark }) {
 
   return (
     <>
-      <motion.section className="w-full flex px-5 my-16" variants={sectVariants} initial="start" whileInView="end" viewport={{ once: false }}>
+      <motion.section className="w-full flex px-5 my-16" variants={sectVariants} initial="start" whileInView="end" viewport={{ once: true }}>
         <div className="w-full h-full ">
           {/* title */}
           <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
