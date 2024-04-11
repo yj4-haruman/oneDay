@@ -78,13 +78,13 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
         <span className="close" onClick={onClose}>
           &times;
         </span>
-        <div className="modal-text flex flex-col p-12">
-          <div className="flex gap-x-2">
+        <div className="modal-text flex flex-col py-8 px-3 lg:p-12">
+          <div className="flex flex-col lg:flex-row gap-y-4 gap-x-2">
             <div className="w-full h-[600px] bg-gray-300 rounded-2xl overflow-hidden">
               <img className="w-full h-full" src={content.imageUrl} alt="Class" />
             </div>
             {/* 사이드바 */}
-            <aside className={`w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#040404]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
+            <aside className={`w-full lg:w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#040404]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
               <h3 className="font-semibold text-3xl mb-2">{content.name}</h3>
               <ClassCate txt={content.type} />
               <div className="flex flex-col gap-y-[8px] pt-3 text-lg">
@@ -144,7 +144,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
                       <input
                         {...field}
                         type="text"
-                        className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
+                        className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full lg:w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
                         onChange={(e) => {
                           const inputNum = parseInt(e.target.value);
                           if (!isNaN(inputNum) && inputNum >= 1) {
@@ -174,11 +174,11 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
             {/* modal des */}
             <div className="flex flex-col gap-y-2">
               <h4 className="font-semibold text-[27px]">클래스 소개</h4>
-              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc }} />
+              <p className="w-full lg:w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc }} />
               <h4 className="font-semibold text-[27px]">이런 분들에게 추천해요</h4>
-              <p className="w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc2 }} />
+              <p className="w-full lg:w-[78%] text-xl mb-12" dangerouslySetInnerHTML={{ __html: content.desc2 }} />
               <h4 className="font-semibold text-[27px]">선생님 소개</h4>
-              <p className="w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.desc3 }} />
+              <p className="w-full lg:w-[78%] text-xl " dangerouslySetInnerHTML={{ __html: content.desc3 }} />
               <div className="mb-4 border-2 w-fit px-2 py-1 rounded-md border-gray-400">
                 <a href={content.sns} target="_blank" className={`flex gap-1 items-center ${!dark && "text-gray-600"}`} rel="noreferrer">
                   <IoLogoInstagram size="24px" color={`${dark ? "white" : "gray"}`} />

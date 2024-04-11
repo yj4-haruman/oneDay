@@ -180,7 +180,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 1024px) {
-  .modal-content {
+  /* .modal-content {
     display: none;
   }
 
@@ -194,7 +194,7 @@ footer a:hover {
     padding: 35px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
-  }
+  } */
 
   .close {
     position: absolute;
