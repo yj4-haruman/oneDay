@@ -10,11 +10,13 @@ import Profile from "./routes/Profile";
 import Kakao from "./routes/Kakao";
 import Mypage from "./routes/Mypage";
 import { ThemeProvider } from "./ThemeContext";
+import NotFound404 from "./routes/NotFound404";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound404/>,
   },
   {
     path: "/users",
