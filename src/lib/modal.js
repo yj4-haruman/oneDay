@@ -41,7 +41,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
       const newData = {
         title: content.name,
         price: content.price,
-        genre: content.tyep,
+        genre: content.type,
         state: content.line,
         user: content.people,
         text: content.desc,
