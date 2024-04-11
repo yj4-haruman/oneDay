@@ -39,6 +39,9 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
       alert("수강신청 되었습니다.");
 
       const newData = {
+        address: content.address,
+        time: content.time,
+        park: content.park,
         name: content.name,
         price: content.price,
         type: content.type,
