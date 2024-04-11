@@ -87,7 +87,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
               <img className="w-full h-full" src={content.imageUrl} alt="Class" />
             </div>
             {/* 사이드바 */}
-            <aside className={`w-full lg:w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#040404]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
+            <aside className={`w-full lg:w-[380px] min-h-[600px] flex flex-col rounded-2xl p-8 gap-y-2 ${dark && "bg-[#070707]"}`} style={dark ? {} : { boxShadow: "-10px 4px 64px rgba(180, 180, 180, 0.2)" }}>
               <h3 className="font-semibold text-3xl mb-2">{content.name}</h3>
               <ClassCate txt={content.type} />
               <div className="flex flex-col gap-y-[8px] pt-3 text-lg">

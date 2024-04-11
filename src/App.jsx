@@ -22,6 +22,10 @@ function App() {
       for (let a of document.querySelectorAll("option")) {
         a.style.background = "#333";
       }
+      document.querySelector("footer").style.background = "#232325";
+      for (let a of document.querySelectorAll("footer *")) {
+        a.style.color = "#cacaca";
+      }
     } else {
       // 기본값
       document.querySelector("body").style.background = "";
@@ -33,6 +37,10 @@ function App() {
       document.querySelector("header input").style.background = "";
       for (let a of document.querySelectorAll("option")) {
         a.style.background = "";
+      }
+      document.querySelector("footer").style.background = "";
+      for (let a of document.querySelectorAll("footer *")) {
+        a.style.color = "";
       }
     }
   }, [dark]);
