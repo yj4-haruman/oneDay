@@ -12,7 +12,7 @@ import Modal from "../lib/modal.js";
 export default function Mypage() {
   const userData = useUser();
   const userName = userData;
-  console.log(userName);
+  // console.log(userName);
 
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
@@ -54,29 +54,7 @@ export default function Mypage() {
           </p>
         </div>
       </div>
-      {/* alarm */}
       <div className="w-full max-w-[85%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5 gap-y-12">
-        <div className="w-full flex items-center justify-center">
-          <div className="relative w-full flex flex-col gap-y-2 p-6 sm:w-[345px] h-[400px] bg-[#ca93f8] rounded-lg">
-            <img src={phone} alt="메가폰" className="absolute -top-10 -left-10 w-[140px]" />
-            <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
-            {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
-            <img src={clock} alt="알람시계" className="absolute w-[65px] top-[227px] right-[61px]" />
-            {/* <img src={fire} alt="폭죽" className="absolute w-[150px] -bottom-8 -right-[40px]" /> */}
-            <div className="w-full h-full bg-[#f5f5f5] rounded-[30px]">
-              <div className="w-[96%] m-auto my-[6px] bg-white rounded-[30px] py-10 text-center text-[40px] leading-[52px]">
-                <span className="font-medium text-[#b858ed]">원데이클래스</span>
-                <br />
-                <span className="font-bold text-[#a23fff]">수업 일</span>
-                <span className="font-medium text-[#b858ed]">이</span>
-                <br /> <span className="font-medium text-[#b858ed]">다가오면</span>
-                <br />
-                <span className="font-bold text-[#a23fff]">알림톡&nbsp;&nbsp;</span>
-                <br /> <span className="font-bold text-[#a23fff]">보내드려요!</span>
-              </div>
-            </div>
-          </div>
-        </div>
         {storedData ? (
           storedData.map((item, index) => <MyCard key={index} img={item.img} date={item.date} number={item.number} openModal={openModal} desc={item} type={item.type} line={item.line} people={item.people} name={item.name} price={item.price} />)
         ) : (

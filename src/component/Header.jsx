@@ -28,7 +28,7 @@ export default function Header({ dark, setDark }) {
   };
 
   const userData = useUser();
-  console.log(userData);
+  // console.log(userData);
   const userName = userData; // 유저 아이디 추출
 
   const handleLogout = async () => {

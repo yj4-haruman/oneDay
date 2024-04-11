@@ -1,6 +1,5 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-
 // 글 자세히보기
 
 export async function apiGetNoticeDetail(props) {
@@ -61,7 +60,7 @@ export async function apiPostNoticeDelete(id) {
     return await fetch(`${BASE_URL}/notice/${id}/delete`, {
       method: "POST",
       headers: {
-        "Content-Type" : "application/json",
+        "Content-Type": "application/json",
       },
     }).then((res) => res.json());
   } catch (error) {
@@ -103,7 +102,7 @@ export async function apiPostLogin(data) {
 
 // 로그인 후 userData 요청
 export async function apiGetUser(data) {
-  console.log(data);
+  // console.log(data);
   try {
     return await fetch(`${BASE_URL}/users/login-success?token=${data?.queryKey[1].token}`, {
       method: "GET",
@@ -139,4 +138,3 @@ export async function apiKakaoLogin(props) {
     console.log(error);
   }
 }
-

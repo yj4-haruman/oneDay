@@ -35,7 +35,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
 
       setIsSubmitting(true); // 수강 신청 중으로 상태 변경
 
-      console.log(data);
+      // console.log(data);
       alert("수강신청 되었습니다.");
 
       const newData = {
@@ -188,10 +188,6 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
             </div>
           </div>
         </div>
-      </motion.div>
-      {/* mobile mode */}
-      <motion.div initial={{ opacity: 0.5, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.2 }} className="m-modal-content overflow-y-scroll">
-        {/* 생략 */}
       </motion.div>
     </div>
   );
