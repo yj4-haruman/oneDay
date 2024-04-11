@@ -12,9 +12,9 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller, useForm } from "react-hook-form";
 import useUser from "../component/useUser";
 
-export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
+export default function Modal({ modalRef, onClose, content, dark }) {
   const [value, setValue] = useState(dayjs());
-  const [number, setNumber] = useState(1);
+  // const [number, setNumber] = useState(1);
   const { handleSubmit, control } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const userData = useUser();
@@ -139,36 +139,37 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
                 />
                 <h3 className="mt-6 font-medium text-xl mb-2">인원수</h3>
                 <div className="flex items-center relative">
-                    <Controller
-                      control={control}
-                      name="number"
-                      render={({ field }) => (
-                        <input
-                          {...field}
-                          type="text"
-                          value={field.value} // 초기값을 비워두고 사용자 입력에 따라 값이 들어감
-                          className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full lg:w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
-                          onChange={(e) => {
-                            const inputNum = parseInt(e.target.value);
-                            if (!isNaN(inputNum) && inputNum >= 1 && inputNum < 100) { // 최대 두 자리까지만 허용
-                              field.onChange(inputNum);
+                  <Controller
+                    control={control}
+                    name="number"
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        type="text"
+                        value={field.value} // 초기값을 비워두고 사용자 입력에 따라 값이 들어감
+                        className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full lg:w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
+                        onChange={(e) => {
+                          const inputNum = parseInt(e.target.value);
+                          if (!isNaN(inputNum) && inputNum >= 1 && inputNum < 100) {
+                            // 최대 두 자리까지만 허용
+                            field.onChange(inputNum);
+                          }
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Backspace") {
+                            // 값이 비어있는 경우에 알람창으로 메시지 보여주기
+                            if (field.value === "" || field.value === undefined) {
+                              alert("예약인원을 정해주세요");
+                            } else {
+                              // 값이 비어있지 않은 경우에만 마지막 자리를 제거함
+                              const newValue = field.value.toString().slice(0, -1);
+                              field.onChange(newValue);
                             }
-                          }}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Backspace') {
-                              // 값이 비어있는 경우에 알람창으로 메시지 보여주기
-                              if (field.value === '' || field.value === undefined) {
-                                alert("예약인원을 정해주세요");
-                              } else {
-                                // 값이 비어있지 않은 경우에만 마지막 자리를 제거함
-                                const newValue = field.value.toString().slice(0, -1);
-                                field.onChange(newValue);
-                              }
-                            }
-                          }}
-                        />
-                      )}
-                    />
+                          }
+                        }}
+                      />
+                    )}
+                  />
                   <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
                 </div>
                 {isUserLoggedIn ? (
