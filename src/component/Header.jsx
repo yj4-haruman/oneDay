@@ -4,7 +4,7 @@ import { FaArrowRotateLeft, FaSun, FaMoon } from "react-icons/fa6";
 import useUser from "./useUser";
 import { apiPostLogout } from "../api";
 import logo from "../img/logo.svg";
-import SearchPage from "./SearchPage";
+import SearchPage from "./SearchPage.jsx";
 import { classList } from "../lib/classList";
 import angleDown from "../img/angleDown.svg";
 
@@ -39,7 +39,7 @@ export default function Header({ dark, setDark }) {
 
   const handleSearch = () => {
     const filtered = classList.filter((item) => {
-      return item.이름.includes(searchQuery) || item.종류.includes(searchQuery);
+      return item.name.includes(searchQuery) && item.type.includes(searchQuery);
     });
     setFilteredClasses(filtered);
     setIsSearched(true);
