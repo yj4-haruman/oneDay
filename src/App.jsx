@@ -7,6 +7,7 @@ import Footer from "./component/Footer";
 import { useEffect, useState } from "react";
 
 function App() {
+  // 다크 모드
   const [dark, setDark] = useState(false);
   useEffect(() => {
     if (dark) {
