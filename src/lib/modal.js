@@ -150,8 +150,10 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
                         className={`ring-1 ring-[#c8c8c8] px-3 rounded-sm text-lg w-full lg:w-[230px] h-12 outline-none ${dark && "text-gray-600"}`}
                         onChange={(e) => {
                           const inputNum = parseInt(e.target.value);
-                          if (!isNaN(inputNum) && inputNum >= 1) {
+                          if (!isNaN(inputNum) && inputNum >= 1 && inputNum < 100) { // 최대 두 자리까지만 허용
                             field.onChange(inputNum);
+                          } else if (e.target.value.length > 2) {
+                            e.target.value = field.value;
                           }
                         }}
                       />
