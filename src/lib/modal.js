@@ -157,7 +157,7 @@ export default function Modal({ modalRef, imageUrl, onClose, content, dark }) {
                           onKeyDown={(e) => {
                             if (e.key === 'Backspace') {
                               // 값이 비어있는 경우에 알람창으로 메시지 보여주기
-                              if (field.value === '') {
+                              if (field.value === '' || field.value === undefined) {
                                 alert("예약인원을 정해주세요");
                               } else {
                                 // 값이 비어있지 않은 경우에만 마지막 자리를 제거함
