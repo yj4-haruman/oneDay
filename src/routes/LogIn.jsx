@@ -6,10 +6,12 @@ import { useMutation, useQueryClient } from "react-query";
 import { apiPostLogin } from "../api";
 import useUser from "../component/useUser";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useTheme } from "../ThemeContext";
 // import React, { useEffect } from "react
 // import App from "../App";
 
 export default function LogIn() {
+  const { isDark } = useTheme();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const {
@@ -51,7 +53,7 @@ export default function LogIn() {
 
   return (
     <>
-      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1 pt-2">
+      <Link to="/" className={`text-center flex flex-col items-center w-16 mx-1 pt-2 ${isDark && "text-white"}`}>
         <IoMdArrowRoundBack size="35px" />
         <span className="font-semibold">홈페이지</span>
       </Link>
@@ -62,10 +64,9 @@ export default function LogIn() {
           <div className="w-full flex justify-center py-16 select-none">
             <div className="max-w-screen-sm w-full flex flex-col gap-8 px-4">
               {/* 로그인 타이틀 */}
-
               <div className="flex flex-col gap-2">
                 <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">로그인</div>
-                <div className="w-full text-center text-neutral-600">
+                <div className={`w-full text-center ${isDark ? "text-gray-200" : "text-neutral-600"} `}>
                   아직 회원이 아니라면&nbsp;
                   <Link to="/users/signup" className="text-mainBlue font-semibold hover:underline underline-offset-2">
                     가입하기

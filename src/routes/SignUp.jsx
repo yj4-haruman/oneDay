@@ -7,6 +7,7 @@ import { useMutation } from "react-query";
 import { apiPostRegister } from "../api";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext";
 
 export default function SignUp() {
   const [passView, setPassView] = useState(true);
@@ -14,6 +15,7 @@ export default function SignUp() {
   const onEyeClick = () => setPassView(!passView);
   const onEye2Click = () => setPass2View(!pass2View);
   const [checked, setChecked] = useState(false);
+  const { isDark } = useTheme();
 
   const handleChecked = (e) => {
     setChecked(e.target.checked);
@@ -50,7 +52,7 @@ export default function SignUp() {
 
   return (
     <>
-      <Link to="/" className="text-center flex flex-col items-center w-16 mx-1 pt-2">
+      <Link to="/" className={`text-center flex flex-col items-center w-16 mx-1 pt-2 ${isDark && "text-white"}`}>
         <IoMdArrowRoundBack size="35px" />
         <span className="font-semibold">홈페이지</span>
       </Link>
@@ -59,7 +61,7 @@ export default function SignUp() {
           {/* 회원가입 타이틀 */}
           <div className="flex flex-col gap-2">
             <div className="w-full text-center text-4xl font-bold mb-1 text-mainBlue">회원가입</div>
-            <div className="w-full text-center text-neutral-600">
+            <div className={`w-full text-center text-neutral-600 ${isDark && "text-white"}`}>
               회원가입이 되어 있다면&nbsp;
               <Link to="/users/login" className="text-mainBlue font-semibold hover:underline underline-offset-2">
                 로그인하기
@@ -149,7 +151,9 @@ export default function SignUp() {
             </div>
             <div className="text-center">
               <input type="checkbox" id="agree" onChange={handleChecked} />
-              <label htmlFor="agree">&nbsp;&nbsp;개인정보 제공 및 카카오톡을 통한 알림톡 전송에 동의합니다.</label>
+              <label htmlFor="agree" className={`${isDark && "text-white"}`}>
+                &nbsp;&nbsp;개인정보 제공 및 카카오톡을 통한 알림톡 전송에 동의합니다.
+              </label>
             </div>
             <Button type="submit" text="회원가입" disabled={!checked} />
           </form>
