@@ -4,13 +4,15 @@ import New from "./component/New";
 import Qna from "./component/Qna";
 import Banner from "./component/Banner";
 import Footer from "./component/Footer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 
 function App() {
-  // 다크 모드
-  const [dark, setDark] = useState(false);
+  // 다크모드
+  const { isDark, toggleDark } = useTheme();
+
   useEffect(() => {
-    if (dark) {
+    if (isDark) {
       // 다크모드일 때
       document.querySelector("body").style.background = "#111";
       for (let a of document.querySelectorAll("header h2, header div, section div")) {
@@ -43,15 +45,15 @@ function App() {
         a.style.color = "";
       }
     }
-  }, [dark]);
+  }, [isDark]);
 
   return (
     <>
-      <Header dark={dark} setDark={setDark} />
-      <Popular dark={dark} />
-      <New dark={dark} />
+      <Header dark={isDark} setDark={toggleDark} />
+      <Popular dark={isDark} />
+      <New dark={isDark} />
       <Banner />
-      <Qna dark={dark} />
+      <Qna dark={isDark} />
       <Footer />
     </>
   );
