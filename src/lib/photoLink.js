@@ -20,6 +20,7 @@ export const photoLink = [
   { href: "https://www.freepik.com/free-photo/headphones-near-pile-sheet-music_2070303.htm#fromView=search&page=1&position=45&uuid=5b422ee8-ec7c-4f21-a80d-7edb5813fca3", text: "music" },
   { href: "https://firebasestorage.googleapis.com/v0/b/mochaclass-intro-web-4e0c0.appspot.com/o/FCMImages%2FNnQiF60kchMxIGQ0_6178f2d8a6f0394e051b45f2_1024x1024?alt=media", text: "doll" },
   { href: "https://kr.freepik.com/free-photo/walnut-and-chocolate-cookies-with-walnuts-around-top-view_8826610.htm#fromView=search&page=1", text: "walnut" },
-  { href: "https://designchosun.com/web/product/medium/202303/73b65d93ff4241a83319aeb7581784e6.jpg", text: "lacquerware"},
-  { href: "https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%99%94%EC%9D%B4%ED%8A%B8-%EA%B7%B8%EB%A6%B0%EA%B3%BC-%EB%A0%88%EB%93%9C-%ED%94%8C%EB%A1%9C%EB%9F%B4-%ED%85%8D%EC%8A%A4%ED%83%80%EC%9D%BC-kSelCMmY9sA", text: "Acrylic painting"}
+  { href: "https://designchosun.com/web/product/medium/202303/73b65d93ff4241a83319aeb7581784e6.jpg", text: "lacquerware" },
+  { href: "https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%99%94%EC%9D%B4%ED%8A%B8-%EA%B7%B8%EB%A6%B0%EA%B3%BC-%EB%A0%88%EB%93%9C-%ED%94%8C%EB%A1%9C%EB%9F%B4-%ED%85%8D%EC%8A%A4%ED%83%80%EC%9D%BC-kSelCMmY9sA", text: "Acrylic painting" },
+  { href: "https://www.freepik.com/free-psd/3d-female-character-with-404-error-message_13678516.htm#fromView=search&page=1&position=2&uuid=959f6f9e-0a1d-41bc-bd3c-26bb5a9068aa", text: "404" },
 ];

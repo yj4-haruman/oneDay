@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { classList } from "../lib/classList.js";
 import { FaFire } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { sectVariants } from "../lib/variants.js";
 
 export default function Popular({ dark }) {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +29,7 @@ export default function Popular({ dark }) {
 
   return (
     <>
-      <section className="w-full flex px-5 mt-16 mb-28">
+      <motion.section className="w-full flex px-5 mt-16 mb-28" variants={sectVariants} initial="start" whileInView="end" viewport={{ once: false }}>
         <div className="w-full h-full ">
           {/* title */}
           <div className="w-full max-w-[1600px] flex flex-col gap-y-2 mx-auto mb-12">
@@ -65,7 +67,7 @@ export default function Popular({ dark }) {
             ))}
           </Swiper>
         </div>
-      </section>
+      </motion.section>
       {showModal && <Modal dark={dark} modalRef={modalRef} imageUrl={selectedImage} onClose={closeModal} content={modalCont} />}
     </>
   );
