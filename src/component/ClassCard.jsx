@@ -4,7 +4,7 @@ import ClassCate from "./ClassCate";
 
 export default function ClassCard(props) {
   return (
-    <div className="w-full sm:w-[345px] h-full flex flex-col rounded-2xl mb-3 mx-auto select-none">
+    <div className="w-full sm:w-[345px] h-full flex flex-col rounded-2xl mx-auto select-none mb-3">
       {/* 사진 */}
       <div onClick={() => props.openModal(props.imageUrl, props.desc)} className="w-full h-[265px] rounded-2xl overflow-hidden classCard cursor-pointer mb-3">
         <img className="w-full h-full bg-gray-200 object-cover" src={props.img} alt="클래스 이미지" />
