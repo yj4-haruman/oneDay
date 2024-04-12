@@ -59,9 +59,7 @@ export default function Header({ dark, setDark }) {
       <header className="w-full flex justify-center select-none">
         <div className="w-full h-screen">
           <div className="absolute z-10 w-full flex justify-between p-4 px-[20px]">
-            <div className="w-[114px]">
-              <img src={logo} alt="하루만로고" />
-            </div>
+            <img src={logo} alt="하루만로고" className="w-[114px] cursor-pointer" onClick={() => window.location.reload()} />
             <div className="flex text-mainBlue font-semibold text-lg ">
               <div className="px-2 pb-1 flex ml-4 md:ml-0 md:mr-4 items-top cursor-pointer h-fit items-center" onClick={() => setDark(!dark)}>
                 {dark ? (

@@ -336,7 +336,7 @@ export const classListNew = [
     type: "체험",
     line: "오프라인",
     people: "2~6",
-    name: "[나전칠기]빛을 품은 조각 모음 자개 원데이클래스",
+    name: "[나전칠기] 빛을 품은 조각 모음",
     price: "28,000",
     address: "00시 00구 00로 0건물",
     park: "가능",
