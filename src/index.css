@@ -84,6 +84,10 @@ select {
   object-fit: cover;
 }
 
+section .swiper-pagination-bullet {
+  background: #239aff;
+}
+
 .modal {
   display: flex;
   justify-content: center;

@@ -7,6 +7,8 @@ import { classListNew } from "../lib/classList.js";
 import { FaSeedling } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { sectVariants } from "../lib/variants.js";
+import { Pagination } from "swiper/modules";
+import "swiper/css/pagination";
 
 export default function Popular({ dark }) {
   const [showModal, setShowModal] = useState(false);
@@ -43,6 +45,8 @@ export default function Popular({ dark }) {
           </div>
           {/* one-class */}
           <Swiper
+            pagination={{ clickable: true }}
+            modules={[Pagination]}
             slidesPerView={1}
             loop={true}
             breakpoints={{

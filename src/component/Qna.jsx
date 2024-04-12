@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
+import { sectVariants } from "../lib/variants";
 
 const Detail = ({ summ, txt, border, dark }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const Detail = ({ summ, txt, border, dark }) => {
 
 export default function Qna({ dark }) {
   return (
-    <section className="w-full flex justify-center py-5 select-none">
+    <motion.section className="w-full flex justify-center py-5 select-none" variants={sectVariants} initial="start" whileInView="end" viewport={{ once: true }}>
       <div className="w-[95%] max-w-[1100px] h-full flex flex-col gap-y-2">
         <h2 className="font-black text-[34px] mb-[20px]">자주 묻는 질문</h2>
         <div className="w-full max-w-[1100px] mx-auto flex flex-col border border-[#ccc] rounded-2xl overflow-hidden">
@@ -35,6 +36,6 @@ export default function Qna({ dark }) {
           <Detail summ="결제는 어떻게 하나요?" txt="결제 기능은 구현 예정입니다." dark={dark} />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
