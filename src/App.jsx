@@ -10,6 +10,12 @@ import { useTheme } from "./ThemeContext";
 function App() {
   // 다크모드
   const { isDark, toggleDark } = useTheme();
+  
+  useEffect(() => { 
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
   useEffect(() => {
     if (isDark) {
