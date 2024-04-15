@@ -11,6 +11,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller, useForm } from "react-hook-form";
 import useUser from "../component/useUser";
+import Swal from 'sweetalert2'
 
 export default function Modal({ modalRef, onClose, content, dark }) {
   const [value, setValue] = useState(dayjs());
@@ -19,10 +20,15 @@ export default function Modal({ modalRef, onClose, content, dark }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const userData = useUser();
   const userName = userData;
+  const Swal = require('sweetalert2')
 
   const handleReservation = () => {
     if (!userName) {
-      alert("회원가입 해주세요.");
+      Swal.fire({
+        icon: "error",
+        title: "회원가입 해주세요.",
+        footer: '<a href="../users/SignUp">로그인 및 회원가입하러가기</a>'
+      });
     }
   };
 
@@ -73,7 +79,13 @@ export default function Modal({ modalRef, onClose, content, dark }) {
     })
     .then(response => response.json()) // 1번째 then은 API 요청이 완료되었을때 결고값을 JSON 으로 변환해줌 
     .then(data => { //2번째 then은 API 요청이 완료되었을때 페이지를 이동시켜줌  
-        alert('Success:', data);
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "수강신청 완료되었습니다.",
+        showConfirmButton: false,
+        timer: 1500
+      });
         
     })
     .catch((error) => {
@@ -84,7 +96,13 @@ export default function Modal({ modalRef, onClose, content, dark }) {
 
   const onsubmit = async (data) => {
     if (!data.date || !data.number) {
-      alert("날짜와 인원수를 모두 입력하세요.");
+      // alert("날짜와 인원수를 모두 입력하세요.");
+      Swal.fire({
+        position: "top",
+        // title: "The Internet?",
+        title: "날짜와 인원수를 모두 입력하세요.",
+        icon: "question"
+      });
       return;
     } else {
       if (isSubmitting) return; // 이미 수강 신청 중이면 함수 종료
@@ -92,7 +110,6 @@ export default function Modal({ modalRef, onClose, content, dark }) {
       setIsSubmitting(true); // 수강 신청 중으로 상태 변경
   
       // console.log(data);
-      alert("수강신청 되었습니다.");
   
       const newData = {
         address: content.address,
@@ -234,7 +251,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
                   <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
                 </div>
                 {isUserLoggedIn ? (
-                  <button type="submit" onClick={handtest} disabled={isSubmitting} className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
+                  <button type="submit" disabled={isSubmitting} className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
                     <FaRegStar size="19px" />
                     수강 신청
                   </button>
