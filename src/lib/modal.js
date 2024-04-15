@@ -234,7 +234,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
                   <span className="absolute text-lg right-[8px] text-gray-500 bg-white p-1">명</span>
                 </div>
                 {isUserLoggedIn ? (
-                  <button type="submit" onClick={handtest} disabled={isSubmitting} className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
+                  <button type="submit" disabled={isSubmitting} className="w-full h-[55px] bg-mainBlue text-white rounded-2xl flex justify-center items-center gap-x-3 mt-4 font-bold text-[19px]">
                     <FaRegStar size="19px" />
                     수강 신청
                   </button>
