@@ -27,7 +27,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
   };
 
   // 알림톡 전송을 위한 버튼 이벤트 핸들러
-  const handtest = () =>{
+  const handtest = (newData) =>{
 
     // BaseURL 지정 
     const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -37,16 +37,16 @@ export default function Modal({ modalRef, onClose, content, dark }) {
     console.log(totalUserData);
 
 
-    const name = userName?.user?.username;
-    const className = content.name ;
-    const year = totalUserData?.slice(-1)[0]?.dateYear; //수정
-    const month = totalUserData?.slice(-1)[0]?.dateMonth; //수정
-    const day = totalUserData?.slice(-1)[0]?.dateDay; //수정
-    const people = totalUserData?.slice(-1)[0]?.number; //수정
-    const tel =userName?.user?.phone;
-    const LINK ="링크넣어주세요"
-    const pfid = process.env.PFID;
-    const templateId = process.env.TEMPLATEID
+      const name = userName?.user?.username;
+      const className = newData.name;
+      const year = newData.dateYear;
+      const month = newData.dateMonth;
+      const day = newData.dateDay;
+      const people = newData.number;
+      const tel = userName?.user?.phone;
+      const LINK = "링크넣어주세요";
+      const pfid = process.env.PFID;
+      const templateId = process.env.TEMPLATEID;
 
     //데이터를 서버로 보내는 구성
     const data = {
@@ -130,6 +130,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
       const updatedData = [...existingData, newData];
       sessionStorage.setItem("DataArray", JSON.stringify(updatedData));
       setIsSubmitting(false); // 수강 신청 완료 후 상태 변경
+      handtest(newData);
     }
   };
   
