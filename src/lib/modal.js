@@ -27,7 +27,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
         position: "top",
         icon: "error",
         title: "회원가입 해주세요.",
-        footer: '<a href="../users/SignUp">로그인 및 회원가입하러가기</a>'
+        footer: '<a href="../users/SignUp" style="color: blue;">로그인 및 회원가입 하러가기</a>'
       });
     }
   };
