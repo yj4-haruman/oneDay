@@ -11,7 +11,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller, useForm } from "react-hook-form";
 import useUser from "../component/useUser";
-import Swal from 'sweetalert2'
 
 export default function Modal({ modalRef, onClose, content, dark }) {
   const [value, setValue] = useState(dayjs());
