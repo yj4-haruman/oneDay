@@ -25,6 +25,7 @@ export default function Modal({ modalRef, onClose, content, dark }) {
   const handleReservation = () => {
     if (!userName) {
       Swal.fire({
+        position: "top",
         icon: "error",
         title: "회원가입 해주세요.",
         footer: '<a href="../users/SignUp">로그인 및 회원가입하러가기</a>'
